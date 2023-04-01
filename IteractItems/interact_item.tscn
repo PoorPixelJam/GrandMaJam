@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw70bw4ad0yj1"]
+
+[ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="1_aol2p"]
+[ext_resource type="Script" path="res://IteractItems/interact_item.gd" id="1_smsqr"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_15kni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(13, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_15kni")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[node name="InteractItem" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_smsqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_2lntb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(0, -28)
+texture = ExtResource("1_aol2p")
+region_enabled = true
+region_rect = Rect2(34.659, 195.553, 27.1047, 56.7696)

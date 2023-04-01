@@ -1,0 +1,60 @@
+2a60927148abd1d33b818b535e306557
+::res://::1680385352
+icon.svg::CompressedTexture2D::6892786996287753862::1680351683::1680351691::1::::<><>::
+::res://addons/::1677684530
+::res://addons/godot-git-plugin/::1677684530
+git_plugin.gdextension::GDExtension::-1::1677684530::0::1::::<><>::
+plugin.cfg::TextFile::-1::1677684530::0::1::::<><>::
+THIRDPARTY.md::TextFile::-1::1677684530::0::1::::<><>::
+::res://addons/godot-git-plugin/linux/::1677684530
+::res://addons/godot-git-plugin/macos/::1677684530
+::res://addons/godot-git-plugin/win64/::1677684530
+::res://assets/::1680385298
+TopDownHouse_DoorsAndWindows.png::CompressedTexture2D::1274757314211179742::1680359743::1680359745::1::::<><>::
+TopDownHouse_FloorsAndWalls.png::CompressedTexture2D::5040643568257017324::1680359743::1680359745::1::::<><>::
+TopDownHouse_FurnitureState1.png::CompressedTexture2D::627069800457919143::1680359743::1680359745::1::::<><>::
+TopDownHouse_FurnitureState2.png::CompressedTexture2D::3766797773533628309::1680359743::1680359745::1::::<><>::
+TopDownHouse_SmallItems.png::CompressedTexture2D::603760087242675293::1680359743::1680359745::1::::<><>::
+::res://assets/Enviroment/::1680385298
+::res://assets/Enviroment/Texture/::1680385298
+TX Plant.png::CompressedTexture2D::3719881536574056259::1680360200::1680360224::1::::<><>::
+TX Player.png::CompressedTexture2D::4647212860912762150::1680360200::1680360224::1::::<><>::
+TX Props.png::CompressedTexture2D::614455250315232247::1680360201::1680360224::1::::<><>::
+TX Shadow Plant.png::CompressedTexture2D::8156108901939349506::1680360201::1680360224::1::::<><>::
+TX Shadow.png::CompressedTexture2D::6455824361955417599::1680360201::1680360224::1::::<><>::
+TX Struct.png::CompressedTexture2D::5115900973932615695::1680360201::1680360224::1::::<><>::
+TX Tileset Grass.png::CompressedTexture2D::1532151542209877153::1680360201::1680360224::1::::<><>::
+TX Tileset Stone Ground.png::CompressedTexture2D::8269483336979060339::1680360201::1680360224::1::::<><>::
+TX Tileset Wall.png::CompressedTexture2D::1720949230222089105::1680360201::1680360224::1::::<><>::
+::res://assets/slime/::1680385298
+SlimeAttack.png::CompressedTexture2D::8109011886563398768::1680360201::1680360224::1::::<><>::
+SlimeDamageSheet.png::CompressedTexture2D::7436399474874831798::1680360201::1680360224::1::::<><>::
+SlimeDeathSheet.png::CompressedTexture2D::2184326368512520557::1680360201::1680360224::1::::<><>::
+SlimeIdleSheet.png::CompressedTexture2D::370889893690620655::1680360201::1680360224::1::::<><>::
+SlimeSheet.png::CompressedTexture2D::2301693831328495193::1680360201::1680360224::1::::<><>::
+SlimeWalkSheet.png::CompressedTexture2D::5526665799138058472::1680360201::1680360224::1::::<><>::
+::res://Base_Character/::1680385297
+Attack.gd::GDScript::-1::1680360133::0::1::::<>BaseState<>::
+Dash.gd::GDScript::-1::1680360133::0::1::::<>BaseState<>::
+Idle.gd::GDScript::-1::1680380812::0::1::::<>BaseState<>::
+MoveObjects.gd::GDScript::-1::1680382102::0::1::::<>BaseState<>::
+PlayerActionArea.gd::GDScript::-1::1680362487::0::1::::<>Area2D<>::
+slime_base.gd::GDScript::-1::1680360133::0::1::::<>CharacterBody2D<>::
+slime_base.tscn::PackedScene::-1::1680360224::0::1::::<><>::res://Base_Character/slime_base.gd<>uid://717tcwji477r<>res://HurtBox/hurt_box.tscn
+test.gdshader::Shader::-1::1680360133::0::1::::<><>::
+test.tscn::PackedScene::2853983098865807738::1680384961::0::1::::<><>::res://Base_Character/test_state.gd<>uid://717tcwji477r<>res://State Manager/State_Manager.gd<>res://Base_Character/Idle.gd<>res://Base_Character/Walk.gd<>res://Base_Character/MoveObjects.gd
+test_state.gd::GDScript::-1::1680384961::0::1::::<>CharacterBody2D<>::
+Walk.gd::GDScript::-1::1680380751::0::1::::<>BaseState<>::
+::res://IteractItems/::1680385297
+interact_area.gd::GDScript::-1::1680365647::0::1::::InteractArea<>Area2D<>::
+interact_area.tscn::PackedScene::4177074876479393269::1680381492::0::1::::<><>::res://IteractItems/interact_area.gd
+interact_item.gd::GDScript::-1::1680382102::0::1::::<>RigidBody2D<>::
+interact_item.gdshader::Shader::-1::1680371174::0::1::::<><>::
+interact_item.tscn::PackedScene::8770997610177045860::1680381492::0::1::::<><>::uid://i600oxj8pkl8<>res://IteractItems/interact_item.gd<>res://IteractItems/interact_item.gdshader
+interact_item_stul.tscn::PackedScene::2362938809829358344::1680382102::0::1::::<><>::res://IteractItems/interact_item.gd<>res://IteractItems/interact_item.gdshader<>uid://i600oxj8pkl8
+::res://levels/::1680385297
+base_level.tscn::PackedScene::6796641938378676188::1680381492::0::1::::<><>::uid://cd2ywstl0aopg<>uid://bgwqxjqeb08p7<>uid://dw70bw4ad0yj1<>uid://b0rn2v0xowqd6<>uid://8wvi0b44r3c3
+::res://State Manager/::1680385297
+Base_State.gd::GDScript::-1::1680380751::0::1::::BaseState<>Node<>::
+State_Manager.gd::GDScript::-1::1680380987::0::1::::StateManager<>Node<>::
+state_manager.tscn::PackedScene::3619016125643192207::1680360146::0::1::::<><>::res://State Manager/State_Manager.gd
