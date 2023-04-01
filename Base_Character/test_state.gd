@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal character_died()
 
 
-var tesdt = 66
+var tesdt = 6666
 var inventory = []
 @export var SPEED:float = 100.0
 @export var Ускорение:float = 20
