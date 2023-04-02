@@ -4,10 +4,14 @@ extends BaseState
 func physics_process(delta)->int:
 	var input_vector =get_input_vector()
 	if  player.is_move_object:
-		var moving_object=player.moving_object
-		moving_object.global_position = player.object_position.global_position
-		player.velocity = player.velocity.move_toward(input_vector*player.SPEED/1.4,player.Ускорение)
-#		else:
+		var moving_object:RigidBody2D=player.moving_object
+		if input_vector!=Vector2.ZERO:
+			var direction:Vector2=moving_object.global_position.direction_to(player.object_position.global_position)
+			moving_object.linear_velocity=moving_object.linear_velocity.move_toward(direction*player.SPEED/1.2,player.Ускорение)
+			player.velocity = player.velocity.move_toward(input_vector*player.SPEED/1.4,player.Ускорение)
+		else:
+			player.velocity=Vector2.ZERO
+			moving_object.linear_velocity=Vector2.ZERO
 #			player.velocity=player.velocity.move_toward(Vector2.ZERO, player.Трение)
 		player.move_and_slide()
 		return State.NULL

@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://c33lx146oajyi"]
+[gd_scene load_steps=20 format=3 uid="uid://cci31hinl1u1q"]
 
+[ext_resource type="Script" path="res://levels/base_level.gd" id="1_4lig1"]
 [ext_resource type="Texture2D" uid="uid://cd2ywstl0aopg" path="res://assets/TopDownHouse_FloorsAndWalls.png" id="1_6wfde"]
 [ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="2_pbi5b"]
 [ext_resource type="PackedScene" uid="uid://dw70bw4ad0yj1" path="res://IteractItems/interact_item.tscn" id="3_c21b4"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="3_rlo0k"]
-[ext_resource type="PackedScene" uid="uid://8wvi0b44r3c3" path="res://IteractItems/interact_item_stul.tscn" id="4_4735w"]
+[ext_resource type="PackedScene" uid="uid://8wvi0b44r3c3" path="res://IteractItems/MovebleItem/Chair_Moveble.tscn" id="4_4735w"]
+[ext_resource type="Resource" uid="uid://nhi8gllogowo" path="res://Dialogue/test.dialogue" id="4_jc0ji"]
+[ext_resource type="PackedScene" uid="uid://cnysyi0xul1h0" path="res://Lazer/Light.tscn" id="7_isnf7"]
+[ext_resource type="PackedScene" uid="uid://ciw1anb0jb1n5" path="res://IteractItems/RefflectionItem/Mirror_RIGHT.tscn" id="8_jy4aq"]
+[ext_resource type="PackedScene" uid="uid://bjlkcu55ei7gx" path="res://IteractItems/RefflectionItem/Mirror_UP.tscn" id="8_lfk7f"]
+[ext_resource type="PackedScene" uid="uid://xd1ht2k36ogm" path="res://IteractItems/Door.tscn" id="10_qe6vr"]
+[ext_resource type="PackedScene" uid="uid://cbn070ghtfxej" path="res://IteractItems/ChestItem/ChestItem.tscn" id="14_5s883"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_787h8"]
 texture = ExtResource("1_6wfde")
@@ -177,9 +184,20 @@ sources/0 = SubResource("TileSetAtlasSource_787h8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg7c7"]
 size = Vector2(19, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jrkr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vdvx"]
+size = Vector2(20, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wciua"]
+size = Vector2(31, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbuk8"]
+size = Vector2(38, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62hik"]
+size = Vector2(28, 30)
 
 [node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_4lig1")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k0jg3")
@@ -191,24 +209,77 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 2, 131072, 65536
 position = Vector2(162, 19)
 
 [node name="InteractArea" parent="InteractItem" instance=ExtResource("3_rlo0k")]
+position = Vector2(1, 1)
 interact_label = "Prees E"
 interact_type = "message"
+interact_dialog = ExtResource("4_jc0ji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractItem/InteractArea"]
 shape = SubResource("RectangleShape2D_hg7c7")
 
-[node name="InteractItem3" parent="." instance=ExtResource("4_4735w")]
-position = Vector2(60, 95)
+[node name="SlimeBase" parent="." instance=ExtResource("2_pbi5b")]
+position = Vector2(250, 132)
 
-[node name="InteractArea" parent="InteractItem3" instance=ExtResource("3_rlo0k")]
-interact_label = "Prees E"
+[node name="RayCast" parent="." instance=ExtResource("7_isnf7")]
+position = Vector2(197, 6)
+target_position = Vector2(0, 100)
+
+[node name="Chair" parent="." instance=ExtResource("4_4735w")]
+position = Vector2(82, 79)
+sleeping = true
+freeze = true
+
+[node name="InteractArea" parent="Chair" instance=ExtResource("3_rlo0k")]
+interact_label = "e"
 interact_type = "move"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractItem3/InteractArea"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_3jrkr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair/InteractArea"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_4vdvx")
 
-[node name="SlimeBase" parent="." instance=ExtResource("2_pbi5b")]
-position = Vector2(70, 21)
+[node name="MirrorUP" parent="." instance=ExtResource("8_lfk7f")]
+position = Vector2(312, 133)
+freeze = true
 
-[editable path="InteractItem3/InteractArea"]
+[node name="InteractArea" parent="MirrorUP" instance=ExtResource("3_rlo0k")]
+interact_type = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorUP/InteractArea"]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_wciua")
+
+[node name="MirrorRight" parent="." instance=ExtResource("8_jy4aq")]
+position = Vector2(198, 80)
+freeze = true
+
+[node name="InteractArea" parent="MirrorRight" instance=ExtResource("3_rlo0k")]
+interact_type = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorRight/InteractArea"]
+position = Vector2(1, -3.5)
+shape = SubResource("RectangleShape2D_fbuk8")
+
+[node name="Door" parent="." instance=ExtResource("10_qe6vr")]
+position = Vector2(295, 25)
+
+[node name="Chest" parent="." instance=ExtResource("14_5s883")]
+position = Vector2(100, 43)
+
+[node name="InteractArea" parent="Chest" instance=ExtResource("3_rlo0k")]
+interact_label = "e"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/InteractArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_62hik")
+
+[node name="Chest2" parent="." instance=ExtResource("14_5s883")]
+position = Vector2(154, 56)
+
+[node name="InteractArea" parent="Chest2" instance=ExtResource("3_rlo0k")]
+interact_label = "e"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2/InteractArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_62hik")

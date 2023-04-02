@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://xd1ht2k36ogm"]
+
+[ext_resource type="Script" path="res://IteractItems/Door.gd" id="1_lpmx6"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_oi50o"]
+[ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_j60ft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(13, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_oi50o")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[node name="Door" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("1_lpmx6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_2lntb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(0, -28)
+texture = ExtResource("3_j60ft")
+region_enabled = true
+region_rect = Rect2(34.659, 195.553, 27.1047, 56.7696)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

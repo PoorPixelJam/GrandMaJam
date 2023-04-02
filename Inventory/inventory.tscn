@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6hhfggb8osmo"]
+
+[ext_resource type="Script" path="res://Inventory/Inventory.gd" id="1_rtn7m"]
+[ext_resource type="PackedScene" uid="uid://bnbvdygiqgxfs" path="res://Item/Item.tscn" id="2_mbc45"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_rtn7m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 140.0
+offset_bottom = 20.0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 10
+columns = 5
+
+[node name="Slot" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+
+[node name="Slot2" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+
+[node name="Control" parent="MarginContainer/GridContainer/Slot2" instance=ExtResource("2_mbc45")]
+
+[node name="Slot3" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+
+[node name="Slot4" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2
+
+[node name="Slot5" type="Panel" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 70)
+layout_mode = 2

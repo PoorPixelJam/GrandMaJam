@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal character_died()
 
 
-var tesdt = 6666
+var tesdt = 66666
 var inventory = []
 @export var SPEED:float = 100.0
 @export var Ускорение:float = 20
@@ -19,14 +19,19 @@ var inventory = []
 
 
 var is_move_object:bool = false
-var moving_object =null
+var moving_object:RigidBody2D =null
 #:StaticBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
+#	Vector2().normalized()
 	rotationComponent.rotation_degrees=90
 	states.init(self)
 
 func _unhandled_input(event:InputEvent)->void:
+	if event.is_action_pressed("action"):
+#			if Input.is_action_just_pressed("action"):
+		exucute_inteactions()
+#		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/test.dialogue"),"start")
 	states.input(event)
 	
 func _physics_process(delta):
@@ -35,10 +40,8 @@ func _physics_process(delta):
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("action"):
-		exucute_inteactions()
+	pass
 
-	
 	
 
 ##########Функция для интерактива
@@ -50,6 +53,9 @@ func _on_player_action_area_area_entered(area:)->void:
 
 func _on_player_action_area_area_exited(area)->void:
 	if area == all_interaction:
+		if all_interaction.interact_type == "open_chest":
+			MainInventory.Chest=null
+			all_interaction.item.is_open=false
 		all_interaction=null
 		area.item.change_outline()
 		update_interactions()
@@ -63,16 +69,28 @@ func update_interactions()->void:
 func exucute_inteactions()->void:
 	if all_interaction:
 		match all_interaction.interact_type:
-			"message":print(all_interaction.interact_value)
+			"message":
+				all_interaction.show_dialog()
 			"move":
 				if !is_move_object:
 					is_move_object = true
 					moving_object = all_interaction.item
-					
-					
+					moving_object.freeze=false
 				else:
 					is_move_object = false
+					moving_object.linear_velocity=Vector2.ZERO
+					moving_object.freeze=true
 					moving_object = null
+			"open_chest":
+				if MainInventory.Chest ==null:
+					print('Открыл сундук')
+					MainInventory.Chest=all_interaction.item.ChestInventory
+					all_interaction.item.is_open=true
+				else:
+					print('Закрыл сундук')
+					MainInventory.Chest=null
+					all_interaction.item.is_open=false
+				
 
 func move_object(object:StaticBody2D):
 	pass

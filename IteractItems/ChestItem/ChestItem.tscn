@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbn070ghtfxej"]
+
+[ext_resource type="Script" path="res://IteractItems/ChestItem/ChestItem.gd" id="1_dbgxu"]
+[ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="2_3pffe"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_tqcbr"]
+[ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_jpn34"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_tqcbr")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(18, 17)
+
+[node name="InteractItem" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("1_dbgxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(0, -3)
+texture = ExtResource("3_jpn34")
+region_enabled = true
+region_rect = Rect2(5.6249, 4.61155, 20.6748, 24.3745)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_2lntb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3pffe")]
+offset_left = 562.0
+offset_top = 327.0
+offset_right = 562.0
+offset_bottom = 327.0

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjlkcu55ei7gx"]
+
+[ext_resource type="Script" path="res://IteractItems/RefflectionItem/interact_item_glass.gd" id="1_jtbk1"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_5jfu7"]
+[ext_resource type="PackedScene" uid="uid://dop0xsrjv6fyx" path="res://Lazer/LightReflect_UP.tscn" id="2_f3ggw"]
+[ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_ib5jt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_5jfu7")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(23, 31)
+
+[node name="Mirror" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_jtbk1")
+
+[node name="RayCast" parent="." instance=ExtResource("2_f3ggw")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(0, -3)
+texture = ExtResource("3_ib5jt")
+region_enabled = true
+region_rect = Rect2(115.956, 114.603, 24.2265, 43.713)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_2lntb")
