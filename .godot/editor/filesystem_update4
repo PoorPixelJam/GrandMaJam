@@ -1,6 +1,2 @@
-res://levels/base_level.tscn
-res://IteractItems/ChestItem/ChestItem.tscn
-res://IteractItems/ChestItem/ChestItem.gd
-res://Inventory/ChestInventory.tscn
-res://levels/grand_ma_room.tscn
 res://levels/tileset.tres
+res://Base_Character/test.tscn

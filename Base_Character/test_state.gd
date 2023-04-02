@@ -6,8 +6,8 @@ signal character_died()
 
 var tesdt = 66666
 var inventory = []
-@export var SPEED:float = 100.0
-@export var Ускорение:float = 20
+@export var SPEED:float = 60.0
+@export var Ускорение:float = 15
 @export var Трение:float = 50
 @onready var animTree:AnimationTree = $AnimationTree
 @onready var animState =animTree.get("parameters/playback")
