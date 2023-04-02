@@ -21,6 +21,12 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MainInventory="*res://globals/Events.gd"
 InventScene="*res://globals/InventScene.tscn"
 
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=480
+window/stretch/mode="canvas_items"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

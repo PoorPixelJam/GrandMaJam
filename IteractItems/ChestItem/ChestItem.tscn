@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_2lntb")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("2_3pffe")]
+unique_name_in_owner = true
 offset_left = 562.0
 offset_top = 327.0
 offset_right = 562.0

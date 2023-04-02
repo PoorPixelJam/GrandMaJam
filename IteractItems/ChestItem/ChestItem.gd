@@ -1,13 +1,14 @@
 extends InteractItem
-@onready var ChestInventory:CanvasLayer = $CanvasLayer
+@onready var ChestInventory:Control = %Inventory
+@onready var ChestCanvas:CanvasLayer = $CanvasLayer
 var is_open:bool = false:
 	set(value):
 		is_open = value
 		if value == false:
-			ChestInventory.get_child(0).hide()
+			ChestCanvas.hide()
 			ChestInventory.hide()
 		else:
-			ChestInventory.get_child(0).show()
+			ChestCanvas.show()
 			ChestInventory.show()
 			
 func _ready():
