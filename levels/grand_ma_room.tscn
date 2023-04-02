@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnq86r34284nj"]
+[gd_scene load_steps=16 format=3 uid="uid://dnq86r34284nj"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_0npyq"]
 [ext_resource type="PackedScene" uid="uid://ciw1anb0jb1n5" path="res://IteractItems/RefflectionItem/Mirror_RIGHT.tscn" id="2_2vtse"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://df5cxo6lh4j1j" path="res://IteractItems/MessageItem/Lamp_High.tscn" id="12_us8um"]
 [ext_resource type="PackedScene" uid="uid://o5e5ayua8sll" path="res://IteractItems/Item/carpet_big.tscn" id="12_wn2hn"]
 [ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="13_rdtea"]
+[ext_resource type="PackedScene" uid="uid://b2wojghyus14f" path="res://IteractItems/ChestItem/Pedestal_Left.tscn" id="15_sx48i"]
 
 [node name="GrandMaRoom" type="Node2D"]
 
@@ -80,8 +81,18 @@ position = Vector2(290, 153)
 [node name="CarpetSmallLight" parent="." instance=ExtResource("13_rdtea")]
 position = Vector2(328, 154)
 
+[node name="CarpetSmallLight2" parent="." instance=ExtResource("13_rdtea")]
+position = Vector2(341, 212)
+rotation = 1.5708
+
 [node name="SlimeBase" parent="." instance=ExtResource("6_ecof1")]
 position = Vector2(212, 231)
+
+[node name="Pedestal_Left" parent="." instance=ExtResource("15_sx48i")]
+position = Vector2(358, 211)
+
+[node name="Pedestal_Left2" parent="." instance=ExtResource("15_sx48i")]
+position = Vector2(358, 235)
 
 [editable path="Mirror"]
 [editable path="Mirror/RayCast"]
