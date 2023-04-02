@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cci31hinl1u1q"]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_8b6oo"]
 [ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="2_pbi5b"]
-[ext_resource type="PackedScene" uid="uid://dw70bw4ad0yj1" path="res://IteractItems/interact_item.tscn" id="3_c21b4"]
+[ext_resource type="PackedScene" uid="uid://dw70bw4ad0yj1" path="res://IteractItems/MessageItem/interact_item.tscn" id="3_c21b4"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="3_rlo0k"]
 [ext_resource type="PackedScene" uid="uid://8wvi0b44r3c3" path="res://IteractItems/MovebleItem/Chair_Moveble.tscn" id="4_4735w"]
 [ext_resource type="Resource" uid="uid://nhi8gllogowo" path="res://Dialogue/test.dialogue" id="4_jc0ji"]

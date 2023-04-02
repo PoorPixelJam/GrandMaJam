@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MainInventory="*res://globals/Events.gd"
-InventScene="*res://globals/InventScene.tscn"
+InventScene="res://globals/InventScene.tscn"
 
 [display]
 

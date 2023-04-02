@@ -1,2 +1,6 @@
 res://levels/tileset.tres
 res://Base_Character/test.tscn
+res://IteractItems/MessageItem/Tabel_Small.tscn
+res://IteractItems/MessageItem/DiskPlayer.tscn
+res://IteractItems/MessageItem/BookShelf_Small_Down.tscn
+res://IteractItems/MessageItem/Lamp_High.tscn

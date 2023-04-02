@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bafklh0nslu3i"]
+
+[ext_resource type="Script" path="res://IteractItems/interact_item.gd" id="1_7wcr5"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_kmh1e"]
+[ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_yht3r"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="4_8quq5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_kmh1e")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ehl2"]
+size = Vector2(30, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(31, 17)
+
+[node name="InteractItem" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("1_7wcr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(1, -15)
+texture = ExtResource("3_yht3r")
+region_enabled = true
+region_rect = Rect2(143.296, 159.405, 33.107, 33.3772)
+
+[node name="InteractArea" parent="." instance=ExtResource("4_8quq5")]
+interact_type = "message"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(2, -14.5)
+shape = SubResource("RectangleShape2D_2ehl2")
+debug_color = Color(0.8, 0.317647, 0.701961, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -10.5)
+shape = SubResource("RectangleShape2D_2lntb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

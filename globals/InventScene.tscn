@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://globals/InventScene.gd" id="1_d1ywg"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_d1ywg")
 
 [node name="Inventory" parent="." instance=ExtResource("1_1lrth")]

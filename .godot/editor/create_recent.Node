@@ -1,12 +1,12 @@
+Sprite2D
+CollisionShape2D
 TileMap
 Panel
 CanvasLayer
-CollisionShape2D
 InteractItem
 DoorFire
 Timer
 BaseLight
-Sprite2D
 StaticBody2D
 Line2D
 RayCast2D
