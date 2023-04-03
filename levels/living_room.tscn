@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpubol50yvcpr"]
+[gd_scene load_steps=14 format=3 uid="uid://dpubol50yvcpr"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_q8r7s"]
 [ext_resource type="PackedScene" uid="uid://blebosey1babv" path="res://IteractItems/ChestItem/VeryBigTabel.tscn" id="2_ugivi"]
@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="6_5o873"]
 [ext_resource type="PackedScene" uid="uid://o5e5ayua8sll" path="res://IteractItems/Item/carpet_big.tscn" id="7_hhymd"]
 [ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="8_kchso"]
+[ext_resource type="PackedScene" uid="uid://dlx3l6vx1rq0p" path="res://Enemy/EnemyWithState.tscn" id="12_2rgwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxsv4"]
 size = Vector2(28, 39)
 
-[node name="living_room" type="Node2D"]
+[node name="living_room" type="Node2D" groups=["curent_scene"]]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_q8r7s")
@@ -72,6 +73,9 @@ position = Vector2(159, 110)
 [node name="CarpetSmallLight" parent="Objects" instance=ExtResource("8_kchso")]
 position = Vector2(323, 43)
 rotation = 1.5708
+
+[node name="Enemy" parent="." instance=ExtResource("12_2rgwj")]
+position = Vector2(321, 94)
 
 [editable path="Objects/VeryBigTabel"]
 [editable path="Objects/VeryBigTabel/CanvasLayer/Inventory"]

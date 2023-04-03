@@ -11,6 +11,8 @@ offset_right = 64.0
 offset_bottom = 64.0
 mouse_filter = 1
 script = ExtResource("1_pbqoe")
+ID = 3
+NameItem = "piroshok"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)

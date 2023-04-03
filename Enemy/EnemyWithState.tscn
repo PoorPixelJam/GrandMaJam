@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=3 uid="uid://dlx3l6vx1rq0p"]
+
+[ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_kxw5e"]
+[ext_resource type="Texture2D" uid="uid://dlop7nxjx3cnt" path="res://Enemy/deathsheet.png" id="2_53xm0"]
+[ext_resource type="PackedScene" uid="uid://brtcww4wjiktr" path="res://State Manager/state_manager.tscn" id="3_bmjhd"]
+[ext_resource type="PackedScene" uid="uid://co6e8afpkngws" path="res://HurtBox/hurt_box.tscn" id="3_m63r0"]
+[ext_resource type="Script" path="res://Enemy/EnemyStateManager.gd" id="4_8py85"]
+[ext_resource type="Script" path="res://Enemy/Idle.gd" id="5_74emu"]
+[ext_resource type="Script" path="res://Enemy/Engade.gd" id="7_xi6vb"]
+[ext_resource type="Script" path="res://Enemy/Attack.gd" id="8_odij2"]
+[ext_resource type="PackedScene" uid="uid://dns22i4sb1adr" path="res://Enemy/attack_zone.tscn" id="9_0gcbi"]
+[ext_resource type="PackedScene" uid="uid://ycb16b1gyp0j" path="res://Enemy/engade_zone.tscn" id="10_obt2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg6cs"]
+size = Vector2(20, 44)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqoop"]
+height = 41.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a52j"]
+radius = 61.3922
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tp53j"]
+radius = 89.7385
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_kxw5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -27)
+texture = ExtResource("2_53xm0")
+vframes = 3
+frame = 2
+
+[node name="CoolDown" type="Timer" parent="."]
+wait_time = 1.001
+autostart = true
+
+[node name="EnemyStateManager" parent="." instance=ExtResource("3_bmjhd")]
+script = ExtResource("4_8py85")
+
+[node name="Idle" type="Node" parent="EnemyStateManager"]
+script = ExtResource("5_74emu")
+
+[node name="Engade" type="Node" parent="EnemyStateManager"]
+script = ExtResource("7_xi6vb")
+
+[node name="Attack" type="Node" parent="EnemyStateManager"]
+script = ExtResource("8_odij2")
+
+[node name="HurtBox" parent="." groups=["enemy"] instance=ExtResource("3_m63r0")]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_gg6cs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_hqoop")
+
+[node name="AttackZone" parent="." instance=ExtResource("9_0gcbi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+shape = SubResource("CircleShape2D_8a52j")
+debug_color = Color(0, 0.6, 0.137255, 0.419608)
+
+[node name="ChaseZone" parent="." instance=ExtResource("10_obt2a")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseZone"]
+shape = SubResource("CircleShape2D_tp53j")
+
+[connection signal="body_entered" from="AttackZone" to="EnemyStateManager" method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="AttackZone" to="EnemyStateManager" method="_on_attack_zone_body_exited"]
+[connection signal="body_entered" from="ChaseZone" to="EnemyStateManager" method="_on_chase_zone_body_entered"]

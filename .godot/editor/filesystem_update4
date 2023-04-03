@@ -1,9 +1,7 @@
 res://levels/tileset.tres
+res://Base_Character/test_state.gd
 res://levels/grand_ma_room.tscn
-res://IteractItems/ChestItem/Kitchen_tumba.tscn
-res://Item/Pirosok.tscn
-res://Base_Character/test.tscn
 res://levels/kitchen.tscn
-res://IteractItems/MessageItem/Chair_Up.tscn
-res://IteractItems/MessageItem/holodilnik.tscn
-res://IteractItems/MessageItem/p_lita.tscn
+res://Enemy/EnemyWithState.tscn
+res://Bullet/bullet.tscn
+res://levels/living_room.tscn

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bgwqxjqeb08p7"]
+[gd_scene load_steps=46 format=3 uid="uid://bgwqxjqeb08p7"]
 
 [ext_resource type="Script" path="res://Base_Character/test_state.gd" id="1_ydq0q"]
 [ext_resource type="Script" path="res://State Manager/State_Manager.gd" id="3_xc1u0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Base_Character/Walk.gd" id="5_0gfvu"]
 [ext_resource type="Script" path="res://Base_Character/MoveObjects.gd" id="5_tp6xr"]
 [ext_resource type="Texture2D" uid="uid://d2p4i0lcyokd0" path="res://assets/GrandMa/GrandMa.png" id="6_ckt1v"]
+[ext_resource type="PackedScene" uid="uid://co6e8afpkngws" path="res://HurtBox/hurt_box.tscn" id="7_x0bod"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kelsw"]
 
@@ -365,6 +366,8 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22myt"]
 size = Vector2(13, 17.179)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hay7t"]
+
 [node name="SlimeBase" type="CharacterBody2D" groups=["player"]]
 collision_layer = 8
 script = ExtResource("1_ydq0q")
@@ -450,6 +453,13 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 13
 text = "Hi"
 horizontal_alignment = 1
+
+[node name="HurtBox" parent="." instance=ExtResource("7_x0bod")]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_hay7t")
 
 [connection signal="area_entered" from="InteractComponent/RotationComponent/PlayerActionArea" to="." method="_on_player_action_area_area_entered"]
 [connection signal="area_exited" from="InteractComponent/RotationComponent/PlayerActionArea" to="." method="_on_player_action_area_area_exited"]

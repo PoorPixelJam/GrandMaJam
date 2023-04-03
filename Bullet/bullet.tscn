@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd8m8f4ktanrg"]
+
+[ext_resource type="Texture2D" uid="uid://dnscigvpm7g1e" path="res://assets/slime/SlimeAttack.png" id="1_1hqjw"]
+[ext_resource type="Script" path="res://Bullet/bullet.gd" id="1_bpswl"]
+[ext_resource type="PackedScene" uid="uid://cvjxdqfaeyg87" path="res://HitBox/hit_box.tscn" id="3_i4o36"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0r4h"]
+atlas = ExtResource("1_1hqjw")
+region = Rect2(0, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264qr"]
+atlas = ExtResource("1_1hqjw")
+region = Rect2(5, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2egeb"]
+atlas = ExtResource("1_1hqjw")
+region = Rect2(10, 0, 5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hdk21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0r4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_264qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2egeb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g066n"]
+radius = 4.47214
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_bpswl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hdk21")
+autoplay = "default"
+frame_progress = 0.406093
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HitBox" parent="." instance=ExtResource("3_i4o36")]
+collision_layer = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_g066n")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

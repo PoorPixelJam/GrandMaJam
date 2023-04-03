@@ -1,5 +1,6 @@
-RigidBody2D
 CollisionShape2D
+Marker2D
+RigidBody2D
 Sprite2D
 Item
 StaticBody2D
@@ -21,5 +22,4 @@ RayCast2D
 Node
 BaseState
 Area2D
-Marker2D
 MeshInstance2D
