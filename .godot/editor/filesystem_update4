@@ -1,15 +1,1 @@
 res://levels/tileset.tres
-res://Base_Character/Attack.gd
-res://Item/Item.gd
-res://Base_Character/test_state.gd
-res://levels/grand_ma_room.tscn
-res://levels/kitchen.tscn
-res://Enemy/EnemyWithState.tscn
-res://Bullet/bullet_for_player.tscn
-res://levels/living_room.tscn
-res://Bullet/bullet_for_player.gd
-res://Bullet/bullet.tscn
-res://Base_Character/test.tscn
-res://IteractItems/MessageItem/Chair_Down.tscn
-res://IteractItems/MessageItem/Chair_Up.tscn
-res://IteractItems/MessageItem/DiskPlayer.tscn

@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://cidciuw5bbijv"
+path="res://.godot/imported/holodilnik.dialogue-6a6104ea44d1514b1255fb3e14991415.tres"
+
+[deps]
+
+source_file="res://Dialogue/holodilnik.dialogue"
+dest_files=["res://.godot/imported/holodilnik.dialogue-6a6104ea44d1514b1255fb3e14991415.tres"]
+
+[params]
+

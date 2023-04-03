@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6g0mb"]
+
+[resource]
+script = ExtResource("1_6g0mb")
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray()
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "start",
+"type": "title"
+},
+"3": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "6",
+"text": "Я была единственной, кто мог взять его под свою опеку. Внучок так долго ходил понурый... Какая отрада, что со временем он свыкся с потерей.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Я была единственной, кто мог взять его под свою опеку. Внучок так долго ходил понурый... Какая отрада, что со временем он свыкся с потерей.",
+"type": "dialogue"
+},
+"6": {
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+}
+}
+metadata/dialogue_manager_version = "2.14.0"

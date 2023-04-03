@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bukld44ca1c5r"
+path="res://.godot/imported/findapirojok.dialogue-35c8aa0468feec0d39b64876567fc5c7.tres"
+
+[deps]
+
+source_file="res://Dialogue/findapirojok.dialogue"
+dest_files=["res://.godot/imported/findapirojok.dialogue-35c8aa0468feec0d39b64876567fc5c7.tres"]
+
+[params]
+

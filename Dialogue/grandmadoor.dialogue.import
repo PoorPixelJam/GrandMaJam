@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://dkt4x81y2kqpo"
+path="res://.godot/imported/grandmadoor.dialogue-745d99e13dfe565f5bf8fc5b7cf27fbc.tres"
+
+[deps]
+
+source_file="res://Dialogue/grandmadoor.dialogue"
+dest_files=["res://.godot/imported/grandmadoor.dialogue-745d99e13dfe565f5bf8fc5b7cf27fbc.tres"]
+
+[params]
+

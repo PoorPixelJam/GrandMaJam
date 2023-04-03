@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://ckvgpn0071lgm"
+path="res://.godot/imported/fact1.dialogue-04b22b4526aab7c999c3f68f4fe9f959.tres"
+
+[deps]
+
+source_file="res://Dialogue/fact1.dialogue"
+dest_files=["res://.godot/imported/fact1.dialogue-04b22b4526aab7c999c3f68f4fe9f959.tres"]
+
+[params]
+

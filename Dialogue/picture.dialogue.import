@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://cmwqfl6q573q1"
+path="res://.godot/imported/picture.dialogue-b5aa8c8562be5d56b18a4f15da96aea7.tres"
+
+[deps]
+
+source_file="res://Dialogue/picture.dialogue"
+dest_files=["res://.godot/imported/picture.dialogue-b5aa8c8562be5d56b18a4f15da96aea7.tres"]
+
+[params]
+

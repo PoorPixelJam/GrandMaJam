@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bygmclh78m1qd"
+path="res://.godot/imported/zagadkaInBed.dialogue-9a801566b792838071f390c55d226021.tres"
+
+[deps]
+
+source_file="res://Dialogue/zagadkaInBed.dialogue"
+dest_files=["res://.godot/imported/zagadkaInBed.dialogue-9a801566b792838071f390c55d226021.tres"]
+
+[params]
+

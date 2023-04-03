@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bwjm7iytev52t"
+path="res://.godot/imported/ojog.dialogue-c38f728daa3d51fb272ef3543a5cec78.tres"
+
+[deps]
+
+source_file="res://Dialogue/ojog.dialogue"
+dest_files=["res://.godot/imported/ojog.dialogue-c38f728daa3d51fb272ef3543a5cec78.tres"]
+
+[params]
+

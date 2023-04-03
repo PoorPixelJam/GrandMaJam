@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://dh0kumyf8lcrc"
+path="res://.godot/imported/plita.dialogue-d4999d7c24ce66486fe89382479d11aa.tres"
+
+[deps]
+
+source_file="res://Dialogue/plita.dialogue"
+dest_files=["res://.godot/imported/plita.dialogue-d4999d7c24ce66486fe89382479d11aa.tres"]
+
+[params]
+

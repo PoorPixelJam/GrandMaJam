@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://c114cfnt6q475"
+path="res://.godot/imported/fact2.dialogue-a8ee0e2bea9b615fb7a976b0fec8821e.tres"
+
+[deps]
+
+source_file="res://Dialogue/fact2.dialogue"
+dest_files=["res://.godot/imported/fact2.dialogue-a8ee0e2bea9b615fb7a976b0fec8821e.tres"]
+
+[params]
+
