@@ -1,9 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxtmgwx7hxs1w"]
+[gd_scene load_steps=11 format=3 uid="uid://cxtmgwx7hxs1w"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_1xv5a"]
+[ext_resource type="PackedScene" uid="uid://cs01ka6bpuib7" path="res://IteractItems/MessageItem/holodilnik.tscn" id="2_1sk3m"]
+[ext_resource type="PackedScene" uid="uid://b408qdibcelfx" path="res://IteractItems/MessageItem/p_lita.tscn" id="3_kg7nl"]
+[ext_resource type="PackedScene" uid="uid://xvmnhb0dk325" path="res://IteractItems/ChestItem/Kitchen_tumba.tscn" id="4_l8tsq"]
+[ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="5_dadta"]
+[ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="5_u2aig"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="5_uak6r"]
+[ext_resource type="PackedScene" uid="uid://k1wyp1fgj0vt" path="res://Item/Pirosok.tscn" id="6_ka1bv"]
+[ext_resource type="Texture2D" uid="uid://iup3tsedm20p" path="res://assets/TopDownHouse_SmallItems.png" id="8_20ags"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f062v"]
+size = Vector2(77, 40)
 
 [node name="kitchen" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_1xv5a")
 format = 2
+layer_0/tile_data = PackedInt32Array(131086, 524288, 2, 65550, 524288, 1, 131085, 393216, 2, 65549, 458752, 1, 131084, 393216, 2, 65548, 458752, 1, 131083, 458752, 2, 65547, 393216, 1, 131082, 393216, 2, 65546, 458752, 1, 131081, 393216, 2, 65545, 458752, 1, 131080, 458752, 2, 65544, 393216, 1, 131079, 393216, 2, 65543, 393216, 1, 131078, 393216, 2, 65542, 458752, 1, 131077, 393216, 2, 65541, 393216, 1, 131076, 327680, 2, 65540, 327680, 1, 262158, 524288, 4, 196622, 524288, 3, 262157, 458752, 4, 196621, 458752, 3, 262156, 393216, 4, 196620, 458752, 3, 262155, 393216, 4, 196619, 393216, 3, 262154, 393216, 4, 196618, 458752, 3, 262153, 393216, 4, 196617, 393216, 3, 262152, 393216, 4, 196616, 458752, 3, 262151, 458752, 4, 196615, 458752, 3, 262150, 458752, 4, 196614, 458752, 3, 262149, 393216, 4, 196613, 393216, 3, 262148, 327680, 4, 196612, 327680, 3, 458766, 786432, 6, 393230, 786432, 6, 327694, 786432, 5, 458765, 655360, 6, 393229, 720896, 6, 327693, 655360, 5, 458764, 655360, 6, 393228, 655360, 6, 327692, 720896, 5, 458763, 720896, 6, 393227, 720896, 6, 327691, 655360, 5, 458762, 720896, 6, 393226, 720896, 6, 327690, 720896, 5, 458761, 655360, 6, 393225, 720896, 6, 327689, 720896, 5, 458760, 720896, 6, 393224, 720896, 6, 327688, 720896, 5, 458759, 655360, 6, 393223, 655360, 6, 327687, 720896, 5, 458758, 655360, 6, 393222, 655360, 6, 327686, 655360, 5, 458757, 655360, 6, 393221, 720896, 6, 327685, 655360, 5, 458756, 589824, 6, 393220, 589824, 6, 327684, 589824, 5, 65551, 1114112, 1, 131087, 1114112, 3, 196623, 1114112, 4, 262159, 1114112, 2, 327695, 1114112, 2, 393231, 1114112, 7, 458767, 1114112, 7, 15, 1114112, 0, 524303, 1114112, 7, 524300, 720896, 7, 524301, 655360, 7, 524302, 786432, 7, 524297, 720896, 7, 524298, 655360, 7, 524299, 655360, 7, 524294, 655360, 7, 524295, 655360, 7, 524296, 720896, 7, 524291, 0, 7, 524292, 589824, 7, 524293, 655360, 7, 9, 655360, 0, 10, 720896, 0, 11, 786432, 0, 12, 851968, 0, 13, 917504, 0, 14, 983040, 0, 3, 0, 0, 4, 720896, 0, 5, 786432, 0, 6, 851968, 0, 7, 917504, 0, 8, 983040, 0, 65539, 0, 1, 393219, 0, 7, 458755, 0, 7, 327683, 0, 7, 262147, 0, 7, 196611, 0, 7, 131075, 0, 7, 589829, 327680, 8, 589830, 393216, 8, 589831, 458752, 8, 589832, 524288, 8, 589833, 917504, 8, 589834, 917504, 8, 589835, 917504, 8, 589836, 917504, 8, 589837, 917504, 8, 589838, 917504, 8, 589828, 917504, 8, 589839, 1114112, 8, 589827, 0, 8)
+layer_1/name = "2"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(131083, 524290, 3)
+layer_2/name = "3"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Holodilnik" parent="." instance=ExtResource("2_1sk3m")]
+
+[node name="PLita" parent="." instance=ExtResource("3_kg7nl")]
+freeze = true
+
+[node name="Pedestal_Left" parent="." instance=ExtResource("4_l8tsq")]
+position = Vector2(182, 90)
+
+[node name="Inventory" parent="Pedestal_Left/CanvasLayer" index="0" instance=ExtResource("5_u2aig")]
+
+[node name="Control" parent="Pedestal_Left/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_ka1bv")]
+
+[node name="InteractArea" parent="Pedestal_Left" instance=ExtResource("5_uak6r")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pedestal_Left/InteractArea"]
+position = Vector2(0.5, -18)
+shape = SubResource("RectangleShape2D_f062v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pedestal_Left"]
+position = Vector2(14, -30)
+texture = ExtResource("8_20ags")
+region_enabled = true
+region_rect = Rect2(80.2927, 116.775, 15.5605, 11.7302)
+
+[node name="SlimeBase" parent="." instance=ExtResource("5_dadta")]
+position = Vector2(150, 125)
+
+[editable path="Pedestal_Left"]
+[editable path="Pedestal_Left/CanvasLayer/Inventory"]

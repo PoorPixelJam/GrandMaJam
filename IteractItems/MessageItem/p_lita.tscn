@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://b408qdibcelfx"]
+
+[ext_resource type="Script" path="res://IteractItems/interact_item.gd" id="1_o5ro6"]
+[ext_resource type="Texture2D" uid="uid://btwwux85xgc8l" path="res://assets/TopDownHouse_FurnitureState2.png" id="2_eqbbt"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="3_es63c"]
+
+[sub_resource type="Shader" id="Shader_vfbpw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpknc"]
+render_priority = 0
+shader = SubResource("Shader_vfbpw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofi07"]
+size = Vector2(26, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ybpk"]
+size = Vector2(30, 38)
+
+[node name="PLita" type="RigidBody2D"]
+position = Vector2(120, 72)
+script = ExtResource("1_o5ro6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tpknc")
+texture = ExtResource("2_eqbbt")
+region_enabled = true
+region_rect = Rect2(64.9307, 192.005, 30.4681, 42.7659)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_ofi07")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="InteractArea" parent="." instance=ExtResource("3_es63c")]
+interact_type = "message"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0ybpk")

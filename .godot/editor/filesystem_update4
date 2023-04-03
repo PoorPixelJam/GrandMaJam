@@ -1,8 +1,9 @@
 res://levels/tileset.tres
-res://Item/Item.gd
-res://Item/Paper.gd
-res://Base_Character/test.tscn
 res://levels/grand_ma_room.tscn
-res://Item/Paper.tscn
-res://Inventory/ChestInventory.tscn
-res://levels/сorridor.tscn
+res://IteractItems/ChestItem/Kitchen_tumba.tscn
+res://Item/Pirosok.tscn
+res://Base_Character/test.tscn
+res://levels/kitchen.tscn
+res://IteractItems/MessageItem/Chair_Up.tscn
+res://IteractItems/MessageItem/holodilnik.tscn
+res://IteractItems/MessageItem/p_lita.tscn

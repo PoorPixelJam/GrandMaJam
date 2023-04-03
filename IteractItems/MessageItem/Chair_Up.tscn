@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_huirh"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="4_xchkg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uotj6"]
 shader = ExtResource("2_h6d1j")
 shader_parameter/line_color = Quaternion(1, 1, 1, 1)
 shader_parameter/line_thickness = 0.5
@@ -23,7 +23,7 @@ freeze = true
 script = ExtResource("1_5ltse")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_0nkor")
+material = SubResource("ShaderMaterial_uotj6")
 position = Vector2(1, -13)
 texture = ExtResource("3_huirh")
 region_enabled = true

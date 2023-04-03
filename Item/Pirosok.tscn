@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://k1wyp1fgj0vt"]
+
+[ext_resource type="Script" path="res://Item/Pirosok.gd" id="1_pbqoe"]
+[ext_resource type="Texture2D" uid="uid://ddrh610uvmwo5" path="res://assets/note.png" id="2_n5us2"]
+
+[node name="Control" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 1
+script = ExtResource("1_pbqoe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+texture = ExtResource("2_n5us2")
+expand_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_use"]

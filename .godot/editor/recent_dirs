@@ -1,12 +1,13 @@
-res://levels
+res://Base_Character
+res://IteractItems/MessageItem
+res://IteractItems
 res://assets
+res://levels
 res://IteractItems/ChestItem
 res://Inventory
 res://
-res://Base_Character
 res://Dialogue
 res://IteractItems/Item
 res://globals
-res://IteractItems
 res://Lazer
 res://assets/slime
