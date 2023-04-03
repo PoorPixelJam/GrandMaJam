@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2xse6kosbpm"]
+
+[ext_resource type="Texture2D" uid="uid://btwwux85xgc8l" path="res://assets/TopDownHouse_FurnitureState2.png" id="1_wy6yu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l23h"]
+size = Vector2(20, 14.5)
+
+[node name="ironing_board" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.75)
+shape = SubResource("RectangleShape2D_8l23h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("1_wy6yu")
+region_enabled = true
+region_rect = Rect2(49.0159, 256.712, 29.999, 30.4044)

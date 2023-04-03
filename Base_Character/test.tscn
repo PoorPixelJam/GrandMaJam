@@ -413,7 +413,6 @@ hframes = 6
 vframes = 6
 
 [node name="InteractComponent" type="Node2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(0, -6.321)
 

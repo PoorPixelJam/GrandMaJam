@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmjqc6cbgwud3"]
 
-[ext_resource type="Script" path="res://IteractItems/interact_item.gd" id="1_e35ix"]
+[ext_resource type="Script" path="res://IteractItems/ChestItem/ChestItem.gd" id="1_o1j6l"]
 [ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_r4blq"]
 [ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_503ix"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="4_4bqpg"]
@@ -20,7 +20,7 @@ size = Vector2(30, 27)
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
-script = ExtResource("1_e35ix")
+script = ExtResource("1_o1j6l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0nkor")

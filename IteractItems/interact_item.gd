@@ -7,7 +7,7 @@ var is_colliding:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.lock_rotation=true
-	Sprite.material.set('shader_parameter/line_thickness',0)
+	Sprite.material.set('shader_parameter/line_thickness',0.01)
 
 
 func change_outline():

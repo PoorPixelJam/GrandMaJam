@@ -90,6 +90,8 @@ func exucute_inteactions()->void:
 					print('Закрыл сундук')
 					MainInventory.Chest=null
 					all_interaction.item.is_open=false
+			"open_door":
+				all_interaction.enter_scene()
 				
 
 func move_object(object:StaticBody2D):

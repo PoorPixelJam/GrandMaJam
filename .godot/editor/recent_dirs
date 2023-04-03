@@ -1,9 +1,12 @@
-res://IteractItems/Item
-res://assets
-res://levels
-res://globals
+res://IteractItems/ChestItem
 res://Inventory
-res://IteractItems
+res://levels
 res://
+res://Base_Character
+res://Dialogue
+res://assets
+res://IteractItems/Item
+res://globals
+res://IteractItems
 res://Lazer
 res://assets/slime

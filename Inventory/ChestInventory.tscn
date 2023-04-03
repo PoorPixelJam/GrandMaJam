@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://xkwqxrdnr7uv"]
+[gd_scene load_steps=2 format=3 uid="uid://xkwqxrdnr7uv"]
 
 [ext_resource type="Script" path="res://Inventory/ChestInventory.gd" id="1_af1eg"]
-[ext_resource type="PackedScene" uid="uid://bnbvdygiqgxfs" path="res://Item/Item.tscn" id="2_ey1iv"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -48,8 +47,6 @@ theme_override_constants/h_separation = 10
 [node name="Slot" type="Panel" parent="Panel/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(80, 75)
 layout_mode = 2
-
-[node name="Control" parent="Panel/MarginContainer/GridContainer/Slot" instance=ExtResource("2_ey1iv")]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

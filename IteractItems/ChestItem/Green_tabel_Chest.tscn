@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbn070ghtfxej"]
+
+[ext_resource type="Script" path="res://IteractItems/ChestItem/ChestItem.gd" id="1_gkqhf"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_yf66v"]
+[ext_resource type="Texture2D" uid="uid://c6ndx5y08s7k2" path="res://assets/corridor.png" id="3_fl7a3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_yf66v")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(18, 17)
+
+[node name="GreenTabelChest" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("1_gkqhf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(0, -9)
+texture = ExtResource("3_fl7a3")
+region_enabled = true
+region_rect = Rect2(117.109, 126.659, 21.8348, 23.7087)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_2lntb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

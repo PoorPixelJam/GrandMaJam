@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6hhfggb8osmo"]
+[gd_scene load_steps=2 format=3 uid="uid://b6hhfggb8osmo"]
 
 [ext_resource type="Script" path="res://Inventory/Inventory.gd" id="1_rtn7m"]
-[ext_resource type="PackedScene" uid="uid://bnbvdygiqgxfs" path="res://Item/Item.tscn" id="2_mbc45"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -31,8 +30,6 @@ layout_mode = 2
 [node name="Slot2" type="Panel" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(80, 70)
 layout_mode = 2
-
-[node name="Control" parent="MarginContainer/GridContainer/Slot2" instance=ExtResource("2_mbc45")]
 
 [node name="Slot3" type="Panel" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(80, 70)

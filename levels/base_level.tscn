@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=17 format=3 uid="uid://e4gwp3aolu4u"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_8b6oo"]
 [ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="2_pbi5b"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cnysyi0xul1h0" path="res://Lazer/Light.tscn" id="7_isnf7"]
 [ext_resource type="PackedScene" uid="uid://ciw1anb0jb1n5" path="res://IteractItems/RefflectionItem/Mirror_RIGHT.tscn" id="8_jy4aq"]
 [ext_resource type="PackedScene" uid="uid://bjlkcu55ei7gx" path="res://IteractItems/RefflectionItem/Mirror_UP.tscn" id="8_lfk7f"]
-[ext_resource type="PackedScene" uid="uid://xd1ht2k36ogm" path="res://IteractItems/Door.tscn" id="10_qe6vr"]
-[ext_resource type="PackedScene" uid="uid://cbn070ghtfxej" path="res://IteractItems/ChestItem/ChestItem.tscn" id="14_5s883"]
+[ext_resource type="PackedScene" uid="uid://dbv2x2nklja18" path="res://IteractItems/Doors/Door.tscn" id="10_qe6vr"]
+[ext_resource type="PackedScene" uid="uid://cbn070ghtfxej" path="res://IteractItems/ChestItem/Green_tabel_Chest.tscn" id="14_5s883"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg7c7"]
 size = Vector2(19, 22)

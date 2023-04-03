@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2wojghyus14f"]
 
-[ext_resource type="Script" path="res://IteractItems/interact_item.gd" id="1_rdsk3"]
+[ext_resource type="Script" path="res://IteractItems/ChestItem/ChestItem.gd" id="1_y7ipy"]
 [ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_3ronh"]
 [ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_1qvns"]
 
@@ -16,7 +16,7 @@ size = Vector2(15, 14)
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
-script = ExtResource("1_rdsk3")
+script = ExtResource("1_y7ipy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0nkor")
@@ -29,6 +29,8 @@ region_rect = Rect2(31.106, 113.189, 17.6492, 42.431)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -10)
 shape = SubResource("RectangleShape2D_2lntb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

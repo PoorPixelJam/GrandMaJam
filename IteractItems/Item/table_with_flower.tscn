@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://hbsooe1q0ph3"]
+
+[ext_resource type="Texture2D" uid="uid://btwwux85xgc8l" path="res://assets/TopDownHouse_FurnitureState2.png" id="1_fmdcj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxqd2"]
+size = Vector2(25, 14)
+
+[node name="Table_With_flower" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_fmdcj")
+region_enabled = true
+region_rect = Rect2(82.5797, 43.0508, 27.6982, 20.6779)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1, -19)
+texture = ExtResource("1_fmdcj")
+region_enabled = true
+region_rect = Rect2(1.20171, 166.943, 14.4427, 23.9392)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_oxqd2")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bniwa2ts72atb"]
+
+[ext_resource type="Script" path="res://IteractItems/Doors/OutGrandMaDoor.gd" id="1_yicmv"]
+[ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_oi50o"]
+[ext_resource type="Texture2D" uid="uid://sfrcjenis1re" path="res://assets/TopDownHouse_DoorsAndWindows.png" id="3_eaau7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4olo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
+size = Vector2(13, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nkor"]
+shader = ExtResource("2_oi50o")
+shader_parameter/line_color = Quaternion(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+
+[node name="OutGrandMaDoor" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_f4olo")
+collision_layer = 257
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+script = ExtResource("1_yicmv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_2lntb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0nkor")
+position = Vector2(0, -24)
+texture = ExtResource("3_eaau7")
+region_enabled = true
+region_rect = Rect2(128.719, 0.0109444, 30.7391, 50.4743)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -27)
+emitting = false
+amount = 3
+radial_accel_max = 22.7
+angle_min = -90.0
+scale_amount_max = 8.0
+color = Color(0.980392, 0.952941, 0.0901961, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,420 @@
+[gd_scene load_steps=38 format=3 uid="uid://cwbcqfxr1shsa"]
+
+[ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_3bk13"]
+[ext_resource type="Script" path="res://levels/сorridor.gd" id="1_8f1um"]
+[ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="2_ouugd"]
+[ext_resource type="PackedScene" uid="uid://cf22ydgu2i104" path="res://IteractItems/ChestItem/Green_DiskShelf_Chest.tscn" id="3_atoma"]
+[ext_resource type="PackedScene" uid="uid://ck2acser11m0m" path="res://IteractItems/ChestItem/Blue_DiskShelf_Chest.tscn" id="4_7xp1d"]
+[ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="4_lm8v0"]
+[ext_resource type="PackedScene" uid="uid://bu6qy2uo82rqw" path="res://IteractItems/ChestItem/Red_DiskShelf_Chest.tscn" id="5_ttqu2"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="5_y542q"]
+[ext_resource type="PackedScene" uid="uid://bdjhaibep73af" path="res://IteractItems/ChestItem/Blue_BigTabel_Chest.tscn" id="6_4ppqc"]
+[ext_resource type="PackedScene" uid="uid://ci00lrmk171t2" path="res://IteractItems/ChestItem/Blue_Dresser_Chest.tscn" id="7_2wyy3"]
+[ext_resource type="PackedScene" uid="uid://tgxe0xa6he3w" path="res://IteractItems/ChestItem/Blue_tabel_Chest.tscn" id="8_faqdf"]
+[ext_resource type="PackedScene" uid="uid://3nxav7lbje5a" path="res://IteractItems/ChestItem/Green_BigTabel_Chest.tscn" id="9_myciu"]
+[ext_resource type="PackedScene" uid="uid://cbn070ghtfxej" path="res://IteractItems/ChestItem/Green_tabel_Chest.tscn" id="10_77nd3"]
+[ext_resource type="PackedScene" uid="uid://ci52kwa0iak6j" path="res://IteractItems/ChestItem/Red_BigTabel_Chest.tscn" id="11_hfm00"]
+[ext_resource type="PackedScene" uid="uid://bqiis4rhr6r7e" path="res://IteractItems/ChestItem/Red_Dresser_Chest.tscn" id="12_2lh2x"]
+[ext_resource type="PackedScene" uid="uid://bmby061ac7vum" path="res://IteractItems/ChestItem/Red_tabel_Chest.tscn" id="13_jf0fr"]
+[ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="14_hgwp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwfl"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhf7y"]
+size = Vector2(14, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7yfc"]
+size = Vector2(13, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl5aa"]
+size = Vector2(13, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_741uq"]
+size = Vector2(13, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f3s0"]
+size = Vector2(14, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gxmj"]
+size = Vector2(13, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bht4h"]
+size = Vector2(11, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8amsu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d61me"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi7uv"]
+size = Vector2(18, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tedk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1wju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ail5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1t8f"]
+size = Vector2(18, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t01g7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3lso"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye6nd"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fgr8"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88r65"]
+
+[node name="Сorridor" type="Node2D"]
+script = ExtResource("1_8f1um")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Задачи:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 29.0
+offset_right = 32.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Найти записки 
+напоминающие
+ о внуке 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = 107.0
+offset_right = 33.0
+offset_bottom = 133.0
+grow_horizontal = 2
+text = "(0/3)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_3bk13")
+format = 2
+layer_0/tile_data = PackedInt32Array(262166, 786432, 4, 196630, 786432, 3, 131094, 786432, 3, 65558, 786432, 1, 262165, 720896, 4, 196629, 655360, 2, 131093, 720896, 3, 65557, 655360, 1, 262164, 655360, 4, 196628, 655360, 3, 131092, 720896, 2, 65556, 655360, 1, 262163, 655360, 4, 196627, 720896, 2, 131091, 720896, 2, 65555, 720896, 1, 262162, 720896, 4, 196626, 720896, 2, 131090, 720896, 3, 65554, 720896, 1, 262161, 655360, 4, 196625, 720896, 2, 131089, 720896, 2, 65553, 655360, 1, 262160, 720896, 4, 196624, 655360, 3, 131088, 720896, 3, 65552, 720896, 1, 262159, 655360, 4, 196623, 655360, 2, 131087, 720896, 3, 65551, 720896, 1, 262158, 655360, 4, 196622, 720896, 2, 131086, 720896, 3, 65550, 720896, 1, 262157, 720896, 4, 196621, 655360, 3, 131085, 655360, 3, 65549, 720896, 1, 262156, 720896, 4, 196620, 655360, 2, 131084, 720896, 3, 65548, 655360, 1, 262155, 720896, 4, 196619, 720896, 3, 131083, 720896, 2, 65547, 720896, 1, 262154, 720896, 4, 196618, 720896, 2, 131082, 655360, 2, 65546, 655360, 1, 262153, 655360, 4, 196617, 720896, 2, 131081, 720896, 3, 65545, 655360, 1, 262152, 720896, 4, 196616, 720896, 2, 131080, 655360, 3, 65544, 655360, 1, 262151, 720896, 4, 196615, 655360, 3, 131079, 655360, 2, 65543, 655360, 1, 262150, 720896, 4, 196614, 655360, 3, 131078, 720896, 3, 65542, 655360, 1, 262149, 655360, 4, 196613, 655360, 2, 131077, 655360, 2, 65541, 655360, 1, 262148, 720896, 4, 196612, 655360, 3, 131076, 655360, 3, 65540, 720896, 1, 262147, 589824, 4, 196611, 589824, 2, 131075, 589824, 2, 65539, 589824, 1, 524310, 786432, 7, 458774, 786432, 6, 393238, 786432, 6, 327702, 786432, 5, 524309, 655360, 7, 458773, 655360, 6, 393237, 720896, 6, 327701, 655360, 5, 524308, 720896, 7, 458772, 720896, 6, 393236, 720896, 6, 327700, 720896, 5, 524307, 655360, 7, 458771, 655360, 6, 393235, 655360, 6, 327699, 655360, 5, 524306, 720896, 7, 458770, 655360, 6, 393234, 720896, 6, 327698, 655360, 5, 524305, 655360, 7, 458769, 720896, 6, 393233, 655360, 6, 327697, 655360, 5, 524304, 655360, 7, 458768, 720896, 6, 393232, 655360, 6, 327696, 655360, 5, 524303, 655360, 7, 458767, 720896, 6, 393231, 720896, 6, 327695, 720896, 5, 524302, 655360, 7, 458766, 655360, 6, 393230, 720896, 6, 327694, 720896, 5, 524301, 655360, 7, 458765, 720896, 6, 393229, 720896, 6, 327693, 720896, 5, 524300, 720896, 7, 458764, 655360, 6, 393228, 655360, 6, 327692, 655360, 5, 524299, 720896, 7, 458763, 655360, 6, 393227, 655360, 6, 327691, 720896, 5, 524298, 720896, 7, 458762, 720896, 6, 393226, 655360, 6, 327690, 655360, 5, 524297, 720896, 7, 458761, 720896, 6, 393225, 720896, 6, 327689, 720896, 5, 524296, 720896, 7, 458760, 655360, 6, 393224, 720896, 6, 327688, 720896, 5, 524295, 720896, 7, 458759, 655360, 6, 393223, 720896, 6, 327687, 655360, 5, 524294, 655360, 7, 458758, 655360, 6, 393222, 655360, 6, 327686, 720896, 5, 524293, 655360, 7, 458757, 655360, 6, 393221, 655360, 6, 327685, 720896, 5, 524292, 720896, 7, 458756, 655360, 6, 393220, 720896, 6, 327684, 720896, 5, 524291, 589824, 7, 458755, 589824, 6, 393219, 589824, 6, 327683, 589824, 5, 3, 65536, 0, 4, 131072, 0, 5, 196608, 0, 6, 262144, 0, 7, 65536, 0, 8, 131072, 0, 9, 196608, 0, 10, 262144, 0, 11, 327680, 0, 12, 393216, 0, 13, 458752, 0, 14, 524288, 0, 15, 589824, 0, 16, 655360, 0, 17, 720896, 0, 18, 786432, 0, 19, 851968, 0, 20, 917504, 0, 21, 983040, 0, 22, 1048576, 0, 2, 0, 0, 65538, 0, 1, 23, 1114112, 0, 65559, 1114112, 1, 458754, 0, 4, 524290, 0, 7, 196610, 0, 1, 131074, 0, 1, 589826, 0, 8, 589827, 65536, 8, 327682, 0, 7, 262146, 0, 7, 393218, 0, 3, 589828, 851968, 8, 589829, 917504, 8, 589830, 983040, 8, 589831, 1048576, 8, 589832, 851968, 8, 589833, 917504, 8, 589834, 983040, 8, 589835, 1048576, 8, 589836, 851968, 8, 589837, 917504, 8, 589838, 983040, 8, 589839, 1048576, 8, 589840, 851968, 8, 589841, 917504, 8, 589842, 983040, 8, 589843, 1048576, 8, 589844, 851968, 8, 589845, 917504, 8, 589846, 983040, 8, 589847, 1114112, 8, 524311, 1114112, 4, 393239, 1114112, 2, 458775, 1114112, 3, 196631, 1114112, 3, 262167, 1114112, 4, 327703, 1114112, 4, 131095, 1114112, 2)
+
+[node name="SlimeBase" parent="." instance=ExtResource("2_ouugd")]
+position = Vector2(135, 115)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="GreenDiskShelf" parent="Objects" instance=ExtResource("3_atoma")]
+position = Vector2(75, 141)
+
+[node name="Inventory" parent="Objects/GreenDiskShelf/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenDiskShelf" instance=ExtResource("5_y542q")]
+interact_label = "press space"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf/InteractArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_4bwfl")
+
+[node name="GreenDiskShelf2" parent="Objects" instance=ExtResource("3_atoma")]
+position = Vector2(100, 89)
+
+[node name="Inventory" parent="Objects/GreenDiskShelf2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenDiskShelf2" instance=ExtResource("5_y542q")]
+interact_label = "space"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf2/InteractArea"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_uhf7y")
+
+[node name="GreenDiskShelf3" parent="Objects" instance=ExtResource("3_atoma")]
+position = Vector2(162, 140)
+
+[node name="Inventory" parent="Objects/GreenDiskShelf3/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenDiskShelf3" instance=ExtResource("5_y542q")]
+interact_label = "space"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf3/InteractArea"]
+position = Vector2(0.5, -8)
+shape = SubResource("RectangleShape2D_b7yfc")
+
+[node name="GreenDiskShelf4" parent="Objects" instance=ExtResource("3_atoma")]
+position = Vector2(288, 140)
+
+[node name="Inventory" parent="Objects/GreenDiskShelf4/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenDiskShelf4" instance=ExtResource("5_y542q")]
+interact_label = "space"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf4/InteractArea"]
+position = Vector2(-0.5, -8)
+shape = SubResource("RectangleShape2D_hl5aa")
+
+[node name="BlueDiskShelf" parent="Objects" instance=ExtResource("4_7xp1d")]
+position = Vector2(105, 141)
+
+[node name="Inventory" parent="Objects/BlueDiskShelf/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueDiskShelf" instance=ExtResource("5_y542q")]
+position = Vector2(-1, -7)
+interact_label = "space"
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueDiskShelf/InteractArea"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_741uq")
+
+[node name="BlueDiskShelf2" parent="Objects" instance=ExtResource("4_7xp1d")]
+position = Vector2(240, 140)
+
+[node name="Inventory" parent="Objects/BlueDiskShelf2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueDiskShelf2" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueDiskShelf2/InteractArea"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_0f3s0")
+
+[node name="RedDiskShelf" parent="Objects" instance=ExtResource("5_ttqu2")]
+position = Vector2(142, 140)
+
+[node name="Inventory" parent="Objects/RedDiskShelf/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/RedDiskShelf" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/RedDiskShelf/InteractArea"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_4gxmj")
+
+[node name="RedDiskShelf2" parent="Objects" instance=ExtResource("5_ttqu2")]
+position = Vector2(234, 89)
+
+[node name="Inventory" parent="Objects/RedDiskShelf2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/RedDiskShelf2" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/RedDiskShelf2/InteractArea"]
+position = Vector2(-0.5, -8.5)
+shape = SubResource("RectangleShape2D_bht4h")
+
+[node name="BlueTabelChest" parent="Objects" instance=ExtResource("6_4ppqc")]
+position = Vector2(75, 87)
+
+[node name="Inventory" parent="Objects/BlueTabelChest/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueTabelChest" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueTabelChest/InteractArea"]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_8amsu")
+
+[node name="BlueDresserChest" parent="Objects" instance=ExtResource("7_2wyy3")]
+position = Vector2(312, 140)
+
+[node name="Inventory" parent="Objects/BlueDresserChest/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueDresserChest" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueDresserChest/InteractArea"]
+position = Vector2(-1, -9)
+shape = SubResource("RectangleShape2D_d61me")
+
+[node name="BlueDresserChest2" parent="Objects" instance=ExtResource("7_2wyy3")]
+position = Vector2(264, 140)
+
+[node name="Inventory" parent="Objects/BlueDresserChest2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueDresserChest2" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueDresserChest2/InteractArea"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_yi7uv")
+
+[node name="BlueTabelChest3" parent="Objects" instance=ExtResource("8_faqdf")]
+position = Vector2(215, 88)
+
+[node name="Inventory" parent="Objects/BlueTabelChest3/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueTabelChest3" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueTabelChest3/InteractArea"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_4tedk")
+
+[node name="GreenTabelChest" parent="Objects" instance=ExtResource("9_myciu")]
+position = Vector2(196, 139)
+
+[node name="Inventory" parent="Objects/GreenTabelChest/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenTabelChest" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenTabelChest/InteractArea"]
+position = Vector2(1, -12)
+shape = SubResource("RectangleShape2D_f1wju")
+
+[node name="GreenTabelChest2" parent="Objects" instance=ExtResource("9_myciu")]
+position = Vector2(187, 88)
+
+[node name="Inventory" parent="Objects/GreenTabelChest2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenTabelChest2" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenTabelChest2/InteractArea"]
+position = Vector2(1, -9)
+shape = SubResource("RectangleShape2D_ail5p")
+
+[node name="GreenTabelChest3" parent="Objects" instance=ExtResource("10_77nd3")]
+position = Vector2(121, 87)
+
+[node name="Inventory" parent="Objects/GreenTabelChest3/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenTabelChest3" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenTabelChest3/InteractArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_k1t8f")
+
+[node name="GreenTabelChest4" parent="Objects" instance=ExtResource("10_77nd3")]
+position = Vector2(256, 87)
+
+[node name="Inventory" parent="Objects/GreenTabelChest4/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/GreenTabelChest4" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenTabelChest4/InteractArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_t01g7")
+
+[node name="BlueTabelChest2" parent="Objects" instance=ExtResource("11_hfm00")]
+position = Vector2(283, 88)
+
+[node name="Inventory" parent="Objects/BlueTabelChest2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/BlueTabelChest2" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueTabelChest2/InteractArea"]
+position = Vector2(1, -9)
+shape = SubResource("RectangleShape2D_a3lso")
+
+[node name="RedDresserChest" parent="Objects" instance=ExtResource("12_2lh2x")]
+position = Vector2(162, 89)
+
+[node name="Inventory" parent="Objects/RedDresserChest/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/RedDresserChest" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/RedDresserChest/InteractArea"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ye6nd")
+
+[node name="RedDresserChest2" parent="Objects" instance=ExtResource("12_2lh2x")]
+position = Vector2(142, 89)
+
+[node name="Inventory" parent="Objects/RedDresserChest2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/RedDresserChest2" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/RedDresserChest2/InteractArea"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_4fgr8")
+
+[node name="RedTabelChest" parent="Objects" instance=ExtResource("13_jf0fr")]
+position = Vector2(340, 138)
+
+[node name="Inventory" parent="Objects/RedTabelChest/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="InteractArea" parent="Objects/RedTabelChest" instance=ExtResource("5_y542q")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/RedTabelChest/InteractArea"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_88r65")
+
+[node name="CarpetSmallLight" parent="Objects" instance=ExtResource("14_hgwp1")]
+position = Vector2(358, 111)
+rotation = -1.5708
+
+[node name="CarpetSmallLight2" parent="Objects" instance=ExtResource("14_hgwp1")]
+position = Vector2(60, 111)
+rotation = 1.5708
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.168627, 0.317647, 0.533333, 1)
+blend_mode = 2
+
+[editable path="Objects/GreenDiskShelf"]
+[editable path="Objects/GreenDiskShelf2"]
+[editable path="Objects/GreenDiskShelf3"]
+[editable path="Objects/GreenDiskShelf4"]
+[editable path="Objects/BlueDiskShelf"]
+[editable path="Objects/BlueDiskShelf2"]
+[editable path="Objects/RedDiskShelf"]
+[editable path="Objects/RedDiskShelf2"]
+[editable path="Objects/BlueTabelChest"]
+[editable path="Objects/BlueDresserChest"]
+[editable path="Objects/BlueDresserChest2"]
+[editable path="Objects/BlueTabelChest3"]
+[editable path="Objects/GreenTabelChest"]
+[editable path="Objects/GreenTabelChest2"]
+[editable path="Objects/GreenTabelChest3"]
+[editable path="Objects/GreenTabelChest4"]
+[editable path="Objects/BlueTabelChest2"]
+[editable path="Objects/RedDresserChest"]
+[editable path="Objects/RedDresserChest2"]
+[editable path="Objects/RedTabelChest"]

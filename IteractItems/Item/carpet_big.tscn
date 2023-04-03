@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="1_eqdjo"]
 
 [node name="CarpetBig" type="Sprite2D"]
-position = Vector2(216, 214)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_eqdjo")
 region_enabled = true
