@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6m7mvvddeuk2"]
 
-[ext_resource type="Script" path="res://Bullet/bullet.gd" id="1_oa1eg"]
+[ext_resource type="Script" path="res://Bullet/bullet_for_player.gd" id="1_ksxf3"]
 [ext_resource type="Texture2D" uid="uid://dnscigvpm7g1e" path="res://assets/slime/SlimeAttack.png" id="2_2fhmf"]
 [ext_resource type="PackedScene" uid="uid://cvjxdqfaeyg87" path="res://HitBox/hit_box.tscn" id="3_eddue"]
 
@@ -37,7 +37,7 @@ animations = [{
 radius = 4.47214
 
 [node name="Bullet" type="Node2D"]
-script = ExtResource("1_oa1eg")
+script = ExtResource("1_ksxf3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -51,7 +51,7 @@ one_shot = true
 autostart = true
 
 [node name="HitBox" parent="." instance=ExtResource("3_eddue")]
-collision_layer = 8
+collision_layer = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_g066n")

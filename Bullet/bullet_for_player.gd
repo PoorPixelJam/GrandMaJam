@@ -1,4 +1,4 @@
-class_name Bullet
+class_name Bullet2
 extends Node2D
 @export var speed:int = 300
 @export var lifetime:float = 5 

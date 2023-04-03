@@ -18,8 +18,8 @@ signal health_changed(value:int)
 		else:health_changed.emit(HEALTH)
 		
 
-var BulletScene = preload("res://Bullet/bullet.tscn")
-var can_attack:bool=true
+var BulletScene = preload("res://Bullet/bullet_for_player.tscn")
+var can_attack:bool=false
 
 var tesdt = 66666
 var inventory = []
@@ -33,7 +33,7 @@ var inventory = []
 @onready var object_position:Marker2D = %Marker2D
 @onready var all_interaction = null
 @onready var interactationLabel:Label = $InteractComponent/Label
-
+const BUTTON_LEFT=1
 
 var is_move_object:bool = false
 var moving_object:RigidBody2D =null
@@ -44,7 +44,11 @@ func _ready():
 	rotationComponent.rotation_degrees=90
 	states.init(self)
 
-func _unhandled_input(event:InputEvent)->void:
+func _unhandled_input(event)->void:
+	if event is InputEventMouseButton:
+		if event.is_pressed() and event.button_index==BUTTON_LEFT:
+			print('go')
+			shoot()
 	if event.is_action_pressed("action"):
 #			if Input.is_action_just_pressed("action"):
 		exucute_inteactions()
@@ -52,6 +56,7 @@ func _unhandled_input(event:InputEvent)->void:
 	states.input(event)
 	
 func _physics_process(delta):
+
 	states.physics_process(delta)
 #	if is_move_object:
 		
@@ -123,7 +128,9 @@ func move_object(object:StaticBody2D):
 	
 #target
 func shoot():
+	print('strlyau')
 	if(can_attack==true):
+		print('strlyau2')
 		can_attack=false
 		get_tree().create_timer(randf_range(0.5,0.6),false).connect("timeout",_on_cooldown_timeout)
 		var bullet_instance = BulletScene.instantiate()

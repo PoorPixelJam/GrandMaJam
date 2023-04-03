@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://ctpcin8tjqyyo"
+path="res://.godot/imported/diskplayer.dialogue-c6e4a58b1d697a7fa8b634d9fd54595d.tres"
+
+[deps]
+
+source_file="res://Dialogue/diskplayer.dialogue"
+dest_files=["res://.godot/imported/diskplayer.dialogue-c6e4a58b1d697a7fa8b634d9fd54595d.tres"]
+
+[params]
+

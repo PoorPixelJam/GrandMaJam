@@ -1,4 +1,5 @@
 CollisionShape2D
+Node
 Marker2D
 RigidBody2D
 Sprite2D
@@ -19,7 +20,6 @@ Timer
 BaseLight
 Line2D
 RayCast2D
-Node
 BaseState
 Area2D
 MeshInstance2D

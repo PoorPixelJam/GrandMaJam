@@ -5,7 +5,6 @@ class_name Item
 @export var Icon:Texture=preload("res://icon.svg")
 const BUTTON_LEFT=1
 
-
 func _ready():
 	get_child(0).texture=Icon
 

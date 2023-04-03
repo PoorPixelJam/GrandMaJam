@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci7xljgaifylx"]
+[gd_scene load_steps=6 format=3 uid="uid://ci7xljgaifylx"]
 
 [ext_resource type="Script" path="res://IteractItems/interact_item.gd" id="1_5ltse"]
 [ext_resource type="Shader" path="res://IteractItems/interact_item.gdshader" id="2_h6d1j"]
 [ext_resource type="Texture2D" uid="uid://i600oxj8pkl8" path="res://assets/TopDownHouse_FurnitureState1.png" id="3_huirh"]
-[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="4_xchkg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uotj6"]
 shader = ExtResource("2_h6d1j")
@@ -12,9 +11,6 @@ shader_parameter/line_thickness = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lntb"]
 size = Vector2(34, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p62e2"]
-size = Vector2(32, 20)
 
 [node name="Chair_UP" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -32,14 +28,6 @@ region_rect = Rect2(176.025, 162.763, 32.5665, 30.1341)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_2lntb")
-
-[node name="InteractArea" parent="." instance=ExtResource("4_xchkg")]
-interact_type = "message"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(1, -10)
-shape = SubResource("RectangleShape2D_p62e2")
-debug_color = Color(0.776471, 0.392157, 0.541176, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

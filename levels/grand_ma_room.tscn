@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dnq86r34284nj"]
+[gd_scene load_steps=33 format=3 uid="uid://dnq86r34284nj"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_0npyq"]
 [ext_resource type="PackedScene" uid="uid://ciw1anb0jb1n5" path="res://IteractItems/RefflectionItem/Mirror_RIGHT.tscn" id="2_2vtse"]
@@ -11,10 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://ci7xljgaifylx" path="res://IteractItems/MessageItem/Chair_Up.tscn" id="8_0ssej"]
 [ext_resource type="PackedScene" uid="uid://klm1nf0gc0os" path="res://IteractItems/MessageItem/Tabel_Small.tscn" id="9_560lx"]
 [ext_resource type="PackedScene" uid="uid://75vysn11mdf7" path="res://IteractItems/MessageItem/DiskPlayer.tscn" id="10_sjyjw"]
+[ext_resource type="Resource" uid="uid://clms7ktacuoc" path="res://Dialogue/chair.dialogue" id="11_74ygd"]
 [ext_resource type="PackedScene" uid="uid://cmjqc6cbgwud3" path="res://IteractItems/MessageItem/BookShelf_Small_Down.tscn" id="11_83fe5"]
 [ext_resource type="PackedScene" uid="uid://df5cxo6lh4j1j" path="res://IteractItems/MessageItem/Lamp_High.tscn" id="12_us8um"]
 [ext_resource type="PackedScene" uid="uid://o5e5ayua8sll" path="res://IteractItems/Item/carpet_big.tscn" id="12_wn2hn"]
 [ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="13_rdtea"]
+[ext_resource type="Resource" uid="uid://ctpcin8tjqyyo" path="res://Dialogue/diskplayer.dialogue" id="15_7ikwm"]
 [ext_resource type="PackedScene" uid="uid://b2wojghyus14f" path="res://IteractItems/ChestItem/Pedestal_Left.tscn" id="15_sx48i"]
 [ext_resource type="PackedScene" uid="uid://b2xse6kosbpm" path="res://IteractItems/Item/ironing_board.tscn" id="16_lts5j"]
 [ext_resource type="PackedScene" uid="uid://hbsooe1q0ph3" path="res://IteractItems/Item/table_with_flower.tscn" id="17_yo863"]
@@ -34,6 +36,15 @@ size = Vector2(31, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lp6f"]
 size = Vector2(31, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygb1e"]
+size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd42c"]
+size = Vector2(32, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdhbf"]
+size = Vector2(29, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqs0n"]
 size = Vector2(20, 22)
@@ -127,14 +138,38 @@ texture = ExtResource("5_vm02r")
 [node name="Chair_Down" parent="Objects" instance=ExtResource("7_appr0")]
 position = Vector2(119, 152)
 
+[node name="InteractArea" parent="Objects/Chair_Down" instance=ExtResource("3_wcndc")]
+interact_type = "message"
+interact_dialog = ExtResource("11_74ygd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Chair_Down/InteractArea"]
+position = Vector2(2, -9)
+shape = SubResource("RectangleShape2D_ygb1e")
+
 [node name="Chair_UP" parent="Objects" instance=ExtResource("8_0ssej")]
 position = Vector2(119, 219)
+
+[node name="InteractArea" parent="Objects/Chair_UP" instance=ExtResource("3_wcndc")]
+interact_type = "message"
+interact_dialog = ExtResource("11_74ygd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Chair_UP/InteractArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_sd42c")
 
 [node name="Tabel_Small" parent="Objects" instance=ExtResource("9_560lx")]
 position = Vector2(119, 183)
 
 [node name="DIskPLayer" parent="Objects" instance=ExtResource("10_sjyjw")]
 position = Vector2(181, 148)
+
+[node name="InteractArea" parent="Objects/DIskPLayer" instance=ExtResource("3_wcndc")]
+interact_type = "message"
+interact_dialog = ExtResource("15_7ikwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/DIskPLayer/InteractArea"]
+position = Vector2(-1.5, -7)
+shape = SubResource("RectangleShape2D_qdhbf")
 
 [node name="BookShelf" parent="Objects" instance=ExtResource("11_83fe5")]
 position = Vector2(249, 151)

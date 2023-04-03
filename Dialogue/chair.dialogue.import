@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://clms7ktacuoc"
+path="res://.godot/imported/chair.dialogue-61bc7d74c54928e3342672f7cbe0ffda.tres"
+
+[deps]
+
+source_file="res://Dialogue/chair.dialogue"
+dest_files=["res://.godot/imported/chair.dialogue-61bc7d74c54928e3342672f7cbe0ffda.tres"]
+
+[params]
+

@@ -8,7 +8,7 @@ var direction:Vector2 = Vector2.ZERO
 @onready var hitbox :Area2D = $HitBox
 
 func _ready():
-	hitbox.collision_layer=4
+	hitbox.collision_layer=4#3
 	hitbox.damage=damage
 	$Timer.wait_time=lifetime
 	self.top_level=true
