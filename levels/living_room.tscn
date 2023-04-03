@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpubol50yvcpr"]
+[gd_scene load_steps=13 format=3 uid="uid://dpubol50yvcpr"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_q8r7s"]
 [ext_resource type="PackedScene" uid="uid://blebosey1babv" path="res://IteractItems/ChestItem/VeryBigTabel.tscn" id="2_ugivi"]
 [ext_resource type="PackedScene" uid="uid://bafklh0nslu3i" path="res://IteractItems/MessageItem/Chair_Down.tscn" id="3_3m2be"]
+[ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="4_myp8p"]
 [ext_resource type="PackedScene" uid="uid://ci7xljgaifylx" path="res://IteractItems/MessageItem/Chair_Up.tscn" id="4_rmpym"]
+[ext_resource type="PackedScene" uid="uid://bnbvdygiqgxfs" path="res://Item/Item.tscn" id="5_gm6i0"]
 [ext_resource type="PackedScene" uid="uid://cspqtwvnlhxw" path="res://IteractItems/MessageItem/BigChaier_Right.tscn" id="5_j5gdr"]
 [ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="6_4yab7"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="6_5o873"]
 [ext_resource type="PackedScene" uid="uid://o5e5ayua8sll" path="res://IteractItems/Item/carpet_big.tscn" id="7_hhymd"]
 [ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="8_kchso"]
-[ext_resource type="PackedScene" uid="uid://y6d7i7qqceh1" path="res://IteractItems/ChestItem/BigBookShelf.tscn" id="9_63vv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxsv4"]
+size = Vector2(28, 39)
 
 [node name="living_room" type="Node2D"]
 
@@ -32,6 +37,26 @@ position = Vector2(97, 35)
 [node name="VeryBigTabel" parent="Objects" instance=ExtResource("2_ugivi")]
 position = Vector2(99, 50)
 
+[node name="Inventory" parent="Objects/VeryBigTabel/CanvasLayer" index="0" instance=ExtResource("4_myp8p")]
+
+[node name="GridContainer" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer" index="0"]
+columns = 3
+
+[node name="Slot2" type="Panel" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer" index="1"]
+layout_mode = 2
+
+[node name="Control" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot2" instance=ExtResource("5_gm6i0")]
+
+[node name="Slot3" type="Panel" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer" index="2"]
+layout_mode = 2
+
+[node name="InteractArea" parent="Objects/VeryBigTabel" instance=ExtResource("6_5o873")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/VeryBigTabel/InteractArea"]
+position = Vector2(0, -20.5)
+shape = SubResource("RectangleShape2D_rxsv4")
+
 [node name="InteractItem" parent="Objects" instance=ExtResource("3_3m2be")]
 position = Vector2(99, 3)
 
@@ -48,5 +73,5 @@ position = Vector2(159, 110)
 position = Vector2(323, 43)
 rotation = 1.5708
 
-[node name="BikBookShelf" parent="." instance=ExtResource("9_63vv7")]
-position = Vector2(303, -3)
+[editable path="Objects/VeryBigTabel"]
+[editable path="Objects/VeryBigTabel/CanvasLayer/Inventory"]

@@ -6,6 +6,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func use_effect():
+	get_tree().get_first_node_in_group("curent_scene").count_papers+=1
+	self.queue_free()

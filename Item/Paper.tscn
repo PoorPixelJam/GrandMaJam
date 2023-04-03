@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlyg25kb87xka"]
 
 [ext_resource type="Script" path="res://Item/Paper.gd" id="1_ijv03"]
-[ext_resource type="Texture2D" uid="uid://c5g6gvfvvlpb7" path="res://icon.svg" id="2_itp2t"]
+[ext_resource type="Texture2D" uid="uid://ddrh610uvmwo5" path="res://assets/note.png" id="2_4vx5j"]
 
 [node name="Control" type="Control"]
 clip_contents = true
@@ -16,7 +16,7 @@ NameItem = "Paper"
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-texture = ExtResource("2_itp2t")
+texture = ExtResource("2_4vx5j")
 expand_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_use"]

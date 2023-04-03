@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cwbcqfxr1shsa"]
+[gd_scene load_steps=39 format=3 uid="uid://cwbcqfxr1shsa"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_3bk13"]
 [ext_resource type="Script" path="res://levels/сorridor.gd" id="1_8f1um"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bu6qy2uo82rqw" path="res://IteractItems/ChestItem/Red_DiskShelf_Chest.tscn" id="5_ttqu2"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="5_y542q"]
 [ext_resource type="PackedScene" uid="uid://bdjhaibep73af" path="res://IteractItems/ChestItem/Blue_BigTabel_Chest.tscn" id="6_4ppqc"]
+[ext_resource type="PackedScene" uid="uid://dlyg25kb87xka" path="res://Item/Paper.tscn" id="6_8iorn"]
 [ext_resource type="PackedScene" uid="uid://ci00lrmk171t2" path="res://IteractItems/ChestItem/Blue_Dresser_Chest.tscn" id="7_2wyy3"]
 [ext_resource type="PackedScene" uid="uid://tgxe0xa6he3w" path="res://IteractItems/ChestItem/Blue_tabel_Chest.tscn" id="8_faqdf"]
 [ext_resource type="PackedScene" uid="uid://3nxav7lbje5a" path="res://IteractItems/ChestItem/Green_BigTabel_Chest.tscn" id="9_myciu"]
@@ -71,7 +72,7 @@ size = Vector2(14, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88r65"]
 
-[node name="Сorridor" type="Node2D"]
+[node name="Сorridor" type="Node2D" groups=["curent_scene"]]
 script = ExtResource("1_8f1um")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -143,6 +144,8 @@ position = Vector2(135, 115)
 position = Vector2(75, 141)
 
 [node name="Inventory" parent="Objects/GreenDiskShelf/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="Control" parent="Objects/GreenDiskShelf/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_8iorn")]
 
 [node name="InteractArea" parent="Objects/GreenDiskShelf" instance=ExtResource("5_y542q")]
 interact_label = "press space"
@@ -306,6 +309,8 @@ position = Vector2(187, 88)
 
 [node name="Inventory" parent="Objects/GreenTabelChest2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
+[node name="Control" parent="Objects/GreenTabelChest2/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_8iorn")]
+
 [node name="InteractArea" parent="Objects/GreenTabelChest2" instance=ExtResource("5_y542q")]
 interact_type = "open_chest"
 
@@ -329,6 +334,8 @@ shape = SubResource("RectangleShape2D_k1t8f")
 position = Vector2(256, 87)
 
 [node name="Inventory" parent="Objects/GreenTabelChest4/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
+
+[node name="Control" parent="Objects/GreenTabelChest4/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_8iorn")]
 
 [node name="InteractArea" parent="Objects/GreenTabelChest4" instance=ExtResource("5_y542q")]
 interact_type = "open_chest"
@@ -399,6 +406,7 @@ color = Color(0.168627, 0.317647, 0.533333, 1)
 blend_mode = 2
 
 [editable path="Objects/GreenDiskShelf"]
+[editable path="Objects/GreenDiskShelf/CanvasLayer/Inventory"]
 [editable path="Objects/GreenDiskShelf2"]
 [editable path="Objects/GreenDiskShelf3"]
 [editable path="Objects/GreenDiskShelf4"]
@@ -412,8 +420,10 @@ blend_mode = 2
 [editable path="Objects/BlueTabelChest3"]
 [editable path="Objects/GreenTabelChest"]
 [editable path="Objects/GreenTabelChest2"]
+[editable path="Objects/GreenTabelChest2/CanvasLayer/Inventory"]
 [editable path="Objects/GreenTabelChest3"]
 [editable path="Objects/GreenTabelChest4"]
+[editable path="Objects/GreenTabelChest4/CanvasLayer/Inventory"]
 [editable path="Objects/BlueTabelChest2"]
 [editable path="Objects/RedDresserChest"]
 [editable path="Objects/RedDresserChest2"]

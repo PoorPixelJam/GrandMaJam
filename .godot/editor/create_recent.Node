@@ -1,4 +1,6 @@
+TileMap
 CollisionShape2D
+Panel
 Label
 Control
 CanvasLayer
@@ -7,11 +9,9 @@ DirectionalLight2D
 WorldEnvironment
 CPUParticles2D
 Node2D
-TileMap
 Door
 Sprite2D
 StaticBody2D
-Panel
 InteractItem
 Timer
 BaseLight

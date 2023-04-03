@@ -32,6 +32,7 @@ func _use(event):
 
 
 
+
 func get_where_item(item)->String:
 	for slot in MainInventory.Inventory.InventoryItems:
 		if slot.get_child_count()>0:
