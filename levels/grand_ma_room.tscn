@@ -1,14 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://dnq86r34284nj"]
+[gd_scene load_steps=38 format=3 uid="uid://dnq86r34284nj"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_0npyq"]
+[ext_resource type="Script" path="res://levels/grand_ma_room.gd" id="1_lhmga"]
 [ext_resource type="PackedScene" uid="uid://ciw1anb0jb1n5" path="res://IteractItems/RefflectionItem/Mirror_RIGHT.tscn" id="2_2vtse"]
+[ext_resource type="Resource" uid="uid://do8ovjruewhq4" path="res://Dialogue/cast1.dialogue" id="2_nq552"]
 [ext_resource type="PackedScene" uid="uid://bjlkcu55ei7gx" path="res://IteractItems/RefflectionItem/Mirror_UP.tscn" id="3_3tchy"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="3_wcndc"]
 [ext_resource type="Texture2D" uid="uid://745j7wcdq0x0" path="res://assets/Enviroment/bed.png" id="4_fi4pm"]
-[ext_resource type="Texture2D" uid="uid://btwwux85xgc8l" path="res://assets/TopDownHouse_FurnitureState2.png" id="5_vm02r"]
+[ext_resource type="Resource" uid="uid://dkt4x81y2kqpo" path="res://Dialogue/grandmadoor.dialogue" id="5_jnqo2"]
 [ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="6_ecof1"]
 [ext_resource type="PackedScene" uid="uid://bafklh0nslu3i" path="res://IteractItems/MessageItem/Chair_Down.tscn" id="7_appr0"]
 [ext_resource type="PackedScene" uid="uid://ci7xljgaifylx" path="res://IteractItems/MessageItem/Chair_Up.tscn" id="8_0ssej"]
+[ext_resource type="Texture2D" uid="uid://iup3tsedm20p" path="res://assets/TopDownHouse_SmallItems.png" id="8_hbkjf"]
 [ext_resource type="PackedScene" uid="uid://klm1nf0gc0os" path="res://IteractItems/MessageItem/Tabel_Small.tscn" id="9_560lx"]
 [ext_resource type="PackedScene" uid="uid://75vysn11mdf7" path="res://IteractItems/MessageItem/DiskPlayer.tscn" id="10_sjyjw"]
 [ext_resource type="Resource" uid="uid://clms7ktacuoc" path="res://Dialogue/chair.dialogue" id="11_74ygd"]
@@ -19,11 +22,12 @@
 [ext_resource type="Resource" uid="uid://ctpcin8tjqyyo" path="res://Dialogue/diskplayer.dialogue" id="15_7ikwm"]
 [ext_resource type="PackedScene" uid="uid://b2wojghyus14f" path="res://IteractItems/ChestItem/Pedestal_Left.tscn" id="15_sx48i"]
 [ext_resource type="PackedScene" uid="uid://b2xse6kosbpm" path="res://IteractItems/Item/ironing_board.tscn" id="16_lts5j"]
+[ext_resource type="Script" path="res://IteractItems/bookshelf.gd" id="17_h2rc2"]
+[ext_resource type="Resource" uid="uid://c3rcwiq8x5goc" path="res://Dialogue/comodBed.dialogue" id="17_ucu8d"]
 [ext_resource type="PackedScene" uid="uid://hbsooe1q0ph3" path="res://IteractItems/Item/table_with_flower.tscn" id="17_yo863"]
 [ext_resource type="PackedScene" uid="uid://cnysyi0xul1h0" path="res://Lazer/Light.tscn" id="19_ywkcn"]
 [ext_resource type="PackedScene" uid="uid://bniwa2ts72atb" path="res://IteractItems/Doors/OutGrandMaDoor.tscn" id="20_2awkq"]
 [ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="21_1lh18"]
-[ext_resource type="Resource" uid="uid://nhi8gllogowo" path="res://Dialogue/test.dialogue" id="21_h8joe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0oiu"]
 size = Vector2(25, 28)
@@ -46,10 +50,40 @@ size = Vector2(32, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdhbf"]
 size = Vector2(29, 20)
 
+[sub_resource type="GDScript" id="GDScript_mxahx"]
+script/source = "extends InteractItem
+@onready var ChestInventory:Control 
+@onready var ChestCanvas:CanvasLayer = $CanvasLayer
+
+@export var dialoge : DialogueResource
+var is_open:bool = false:
+	set(value):
+		if value == false:
+			ChestCanvas.hide()
+			ChestInventory.hide()
+			is_open = false
+		else:
+			if MainInventory.Inventory.have_item(\"Key\") == true:
+				ChestCanvas.show()
+				ChestInventory.show()
+				is_open = true
+			else:
+				is_open = false
+				DialogueManager.show_example_dialogue_balloon(dialoge)
+
+			
+func _ready():
+	pass
+	ChestInventory=ChestCanvas.get_child(0)
+	ChestInventory.hide()
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqs0n"]
 size = Vector2(20, 22)
 
 [node name="GrandMaRoom" type="Node2D"]
+script = ExtResource("1_lhmga")
+dialoge = ExtResource("2_nq552")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_0npyq")
@@ -87,7 +121,7 @@ position = Vector2(329, 146)
 position = Vector2(2, -30.5)
 interact_label = "msg"
 interact_type = "message"
-interact_dialog = ExtResource("21_h8joe")
+interact_dialog = ExtResource("5_jnqo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutGrandMaDoor/DialogArea2"]
 position = Vector2(-2.5, 14.5)
@@ -102,10 +136,17 @@ interact_type = "open_door"
 position = Vector2(-2.5, 15)
 shape = SubResource("RectangleShape2D_sidrg")
 
+[node name="Sprite2D2" type="Sprite2D" parent="OutGrandMaDoor"]
+position = Vector2(0, -26)
+texture = ExtResource("8_hbkjf")
+region_enabled = true
+region_rect = Rect2(37.3356, 50.8784, 9.33629, 12.9272)
+
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Mirror" parent="Objects" instance=ExtResource("2_2vtse")]
 position = Vector2(115, 283)
+freeze = true
 
 [node name="InteractArea" parent="Objects/Mirror" instance=ExtResource("3_wcndc")]
 interact_type = "move"
@@ -118,6 +159,7 @@ debug_color = Color(0.760784, 0.435294, 0.32549, 0.419608)
 [node name="Mirror2" parent="Objects" instance=ExtResource("3_3tchy")]
 position = Vector2(347, 284)
 collision_layer = 257
+freeze = true
 
 [node name="InteractArea" parent="Objects/Mirror2" instance=ExtResource("3_wcndc")]
 interact_type = "move"
@@ -130,10 +172,6 @@ debug_color = Color(0.819608, 0.360784, 0.466667, 0.419608)
 [node name="Bed" type="Sprite2D" parent="Objects"]
 position = Vector2(215, 157)
 texture = ExtResource("4_fi4pm")
-
-[node name="TopDownHouseFurnitureState2" type="Sprite2D" parent="Objects"]
-position = Vector2(653, 172)
-texture = ExtResource("5_vm02r")
 
 [node name="Chair_Down" parent="Objects" instance=ExtResource("7_appr0")]
 position = Vector2(119, 152)
@@ -173,10 +211,16 @@ shape = SubResource("RectangleShape2D_qdhbf")
 
 [node name="BookShelf" parent="Objects" instance=ExtResource("11_83fe5")]
 position = Vector2(249, 151)
+script = SubResource("GDScript_mxahx")
+dialoge = ExtResource("17_ucu8d")
 
 [node name="InteractArea" parent="Objects/BookShelf" index="2"]
 position = Vector2(17, 45)
+script = ExtResource("17_h2rc2")
 interact_type = "open_chest"
+
+[node name="CollisionShape2D" parent="Objects/BookShelf/InteractArea" index="0"]
+position = Vector2(-17, -58)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Objects/BookShelf"]
 
@@ -186,7 +230,7 @@ interact_type = "open_chest"
 position = Vector2(290, 153)
 
 [node name="CarpetBig" parent="Objects" instance=ExtResource("12_wn2hn")]
-position = Vector2(1.52588e-05, 1.00002)
+position = Vector2(219, 220)
 
 [node name="CarpetSmallLight" parent="Objects" instance=ExtResource("13_rdtea")]
 position = Vector2(328, 154)

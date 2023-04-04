@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cwbcqfxr1shsa"]
+[gd_scene load_steps=43 format=3 uid="uid://cwbcqfxr1shsa"]
 
 [ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_3bk13"]
 [ext_resource type="Script" path="res://levels/сorridor.gd" id="1_8f1um"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bu6qy2uo82rqw" path="res://IteractItems/ChestItem/Red_DiskShelf_Chest.tscn" id="5_ttqu2"]
 [ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="5_y542q"]
 [ext_resource type="PackedScene" uid="uid://bdjhaibep73af" path="res://IteractItems/ChestItem/Blue_BigTabel_Chest.tscn" id="6_4ppqc"]
-[ext_resource type="PackedScene" uid="uid://dlyg25kb87xka" path="res://Item/Paper.tscn" id="6_8iorn"]
+[ext_resource type="PackedScene" uid="uid://bc0fjwp4rifhb" path="res://Item/Fact3.tscn" id="6_knfpl"]
 [ext_resource type="PackedScene" uid="uid://ci00lrmk171t2" path="res://IteractItems/ChestItem/Blue_Dresser_Chest.tscn" id="7_2wyy3"]
 [ext_resource type="PackedScene" uid="uid://tgxe0xa6he3w" path="res://IteractItems/ChestItem/Blue_tabel_Chest.tscn" id="8_faqdf"]
 [ext_resource type="PackedScene" uid="uid://3nxav7lbje5a" path="res://IteractItems/ChestItem/Green_BigTabel_Chest.tscn" id="9_myciu"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bqiis4rhr6r7e" path="res://IteractItems/ChestItem/Red_Dresser_Chest.tscn" id="12_2lh2x"]
 [ext_resource type="PackedScene" uid="uid://bmby061ac7vum" path="res://IteractItems/ChestItem/Red_tabel_Chest.tscn" id="13_jf0fr"]
 [ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="14_hgwp1"]
+[ext_resource type="PackedScene" uid="uid://fu6u5arqtb71" path="res://Item/Fact2.tscn" id="15_u0ols"]
+[ext_resource type="PackedScene" uid="uid://cvlbxm0hanj35" path="res://Item/Fact1.tscn" id="16_ruseq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwfl"]
 size = Vector2(14, 20)
@@ -71,6 +73,30 @@ size = Vector2(16, 20)
 size = Vector2(14, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88r65"]
+
+[sub_resource type="GDScript" id="GDScript_0qrda"]
+script/source = "extends Area2D
+
+
+
+func enter_scene():
+	get_tree().change_scene_to_file(\"res://levels/living_room.tscn\")
+	print(\"Переход надругие сцену\")
+
+
+
+
+
+
+func _on_area_entered(area):
+	get_tree().change_scene_to_file(\"res://levels/living_room.tscn\")
+
+
+func _on_body_entered(body):
+	get_tree().change_scene_to_file(\"res://levels/living_room.tscn\")
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1h7y2"]
 
 [node name="Сorridor" type="Node2D" groups=["curent_scene"]]
 script = ExtResource("1_8f1um")
@@ -145,7 +171,7 @@ position = Vector2(75, 141)
 
 [node name="Inventory" parent="Objects/GreenDiskShelf/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
-[node name="Control" parent="Objects/GreenDiskShelf/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_8iorn")]
+[node name="Control" parent="Objects/GreenDiskShelf/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("15_u0ols")]
 
 [node name="InteractArea" parent="Objects/GreenDiskShelf" instance=ExtResource("5_y542q")]
 interact_label = "press space"
@@ -161,7 +187,6 @@ position = Vector2(100, 89)
 [node name="Inventory" parent="Objects/GreenDiskShelf2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
 [node name="InteractArea" parent="Objects/GreenDiskShelf2" instance=ExtResource("5_y542q")]
-interact_label = "space"
 interact_type = "open_chest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf2/InteractArea"]
@@ -174,7 +199,6 @@ position = Vector2(162, 140)
 [node name="Inventory" parent="Objects/GreenDiskShelf3/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
 [node name="InteractArea" parent="Objects/GreenDiskShelf3" instance=ExtResource("5_y542q")]
-interact_label = "space"
 interact_type = "open_chest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf3/InteractArea"]
@@ -187,7 +211,6 @@ position = Vector2(288, 140)
 [node name="Inventory" parent="Objects/GreenDiskShelf4/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
 [node name="InteractArea" parent="Objects/GreenDiskShelf4" instance=ExtResource("5_y542q")]
-interact_label = "space"
 interact_type = "open_chest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/GreenDiskShelf4/InteractArea"]
@@ -201,7 +224,6 @@ position = Vector2(105, 141)
 
 [node name="InteractArea" parent="Objects/BlueDiskShelf" instance=ExtResource("5_y542q")]
 position = Vector2(-1, -7)
-interact_label = "space"
 interact_type = "open_chest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BlueDiskShelf/InteractArea"]
@@ -309,7 +331,7 @@ position = Vector2(187, 88)
 
 [node name="Inventory" parent="Objects/GreenTabelChest2/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
-[node name="Control" parent="Objects/GreenTabelChest2/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_8iorn")]
+[node name="Control" parent="Objects/GreenTabelChest2/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_knfpl")]
 
 [node name="InteractArea" parent="Objects/GreenTabelChest2" instance=ExtResource("5_y542q")]
 interact_type = "open_chest"
@@ -335,7 +357,7 @@ position = Vector2(256, 87)
 
 [node name="Inventory" parent="Objects/GreenTabelChest4/CanvasLayer" index="0" instance=ExtResource("4_lm8v0")]
 
-[node name="Control" parent="Objects/GreenTabelChest4/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("6_8iorn")]
+[node name="Control" parent="Objects/GreenTabelChest4/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot" index="0" instance=ExtResource("16_ruseq")]
 
 [node name="InteractArea" parent="Objects/GreenTabelChest4" instance=ExtResource("5_y542q")]
 interact_type = "open_chest"
@@ -404,6 +426,19 @@ rotation = 1.5708
 visible = false
 color = Color(0.168627, 0.317647, 0.533333, 1)
 blend_mode = 2
+
+[node name="InteractArea" parent="." instance=ExtResource("5_y542q")]
+position = Vector2(351, 104)
+collision_layer = 261
+collision_mask = 261
+script = SubResource("GDScript_0qrda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(6, 4)
+shape = SubResource("CircleShape2D_1h7y2")
+
+[connection signal="area_entered" from="InteractArea" to="InteractArea" method="_on_area_entered"]
+[connection signal="body_entered" from="InteractArea" to="InteractArea" method="_on_body_entered"]
 
 [editable path="Objects/GreenDiskShelf"]
 [editable path="Objects/GreenDiskShelf/CanvasLayer/Inventory"]

@@ -6,7 +6,7 @@ extends Door
 
 
 
-var is_fired:bool = false:
+var is_fired:bool = true:
 	set(value):
 		if locked==true:
 			if is_fired != value:
@@ -23,11 +23,6 @@ var is_fired:bool = false:
 func _ready():
 	Sprite = $Sprite2D
 	OpenDoorArea=find_child("OpenDoorArea2")
-	DialogArea=find_child("DialogArea2")
-	DialogArea.monitoring=true
-	DialogArea.monitorable=true
-	OpenDoorArea.monitorable=false
-	OpenDoorArea.monitoring=false
 	self.lock_rotation=true
 	Sprite.material.set('shader_parameter/line_thickness',0)
 

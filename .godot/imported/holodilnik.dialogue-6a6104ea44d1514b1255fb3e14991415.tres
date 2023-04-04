@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_uke4c"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_a2lmw"]
 
 [resource]
-script = ExtResource("1_uke4c")
+script = ExtResource("1_a2lmw")
 titles = {
 "start": "3"
 }
@@ -18,13 +18,13 @@ lines = {
 "3": {
 "character": "Бабушка",
 "character_replacements": Array[Dictionary]([]),
-"next_id": "6",
-"text": "Заснуть сейчас – заснуть навсегда.",
+"next_id": "7",
+"text": "Так мало засолки. Но на какое-то время внучку точно хватит.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Заснуть сейчас – заснуть навсегда.",
+"translation_key": "Так мало засолки. Но на какое-то время внучку точно хватит.",
 "type": "dialogue"
 },
-"6": {
+"7": {
 "is_snippet": false,
 "next_id": "end",
 "type": "goto"

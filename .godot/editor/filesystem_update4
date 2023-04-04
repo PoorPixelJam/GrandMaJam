@@ -1,1 +1,10 @@
 res://levels/tileset.tres
+res://Base_Character/test.tscn
+res://levels/grand_ma_room.tscn
+res://Item/Key.tscn
+res://globals/InventScene.tscn
+res://levels/сorridor.tscn
+res://levels/сorridor2.tscn
+res://levels/living_room.tscn
+res://globals/cs_cene_transition.tscn
+res://levels/grand_ma_room_stage2.tscn

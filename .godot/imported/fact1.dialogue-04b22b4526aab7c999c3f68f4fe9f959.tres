@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6g0mb"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_w77b0"]
 
 [resource]
-script = ExtResource("1_6g0mb")
+script = ExtResource("1_w77b0")
 titles = {
 "start": "3"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("Записка 1")
 first_title = "3"
 lines = {
 "1": {
@@ -16,7 +16,7 @@ lines = {
 "type": "title"
 },
 "3": {
-"character": "",
+"character": "Записка 1",
 "character_replacements": Array[Dictionary]([]),
 "next_id": "6",
 "text": "Я была единственной, кто мог взять его под свою опеку. Внучок так долго ходил понурый... Какая отрада, что со временем он свыкся с потерей.",

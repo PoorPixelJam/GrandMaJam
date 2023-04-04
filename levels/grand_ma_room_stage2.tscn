@@ -1,0 +1,332 @@
+[gd_scene load_steps=35 format=3 uid="uid://jdib040ttgl5"]
+
+[ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="3_o2utu"]
+[ext_resource type="PackedScene" uid="uid://cnysyi0xul1h0" path="res://Lazer/Light.tscn" id="4_jqlm3"]
+[ext_resource type="PackedScene" uid="uid://bniwa2ts72atb" path="res://IteractItems/Doors/OutGrandMaDoor.tscn" id="5_1rgk6"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="6_ahplo"]
+[ext_resource type="PackedScene" uid="uid://ciw1anb0jb1n5" path="res://IteractItems/RefflectionItem/Mirror_RIGHT.tscn" id="8_3ktbv"]
+[ext_resource type="PackedScene" uid="uid://bjlkcu55ei7gx" path="res://IteractItems/RefflectionItem/Mirror_UP.tscn" id="9_hdk88"]
+[ext_resource type="Texture2D" uid="uid://745j7wcdq0x0" path="res://assets/Enviroment/bed.png" id="10_cdqb8"]
+[ext_resource type="PackedScene" uid="uid://bafklh0nslu3i" path="res://IteractItems/MessageItem/Chair_Down.tscn" id="11_x20bt"]
+[ext_resource type="Resource" uid="uid://clms7ktacuoc" path="res://Dialogue/chair.dialogue" id="12_a331p"]
+[ext_resource type="PackedScene" uid="uid://ci7xljgaifylx" path="res://IteractItems/MessageItem/Chair_Up.tscn" id="13_f0pcf"]
+[ext_resource type="PackedScene" uid="uid://klm1nf0gc0os" path="res://IteractItems/MessageItem/Tabel_Small.tscn" id="14_fishm"]
+[ext_resource type="PackedScene" uid="uid://75vysn11mdf7" path="res://IteractItems/MessageItem/DiskPlayer.tscn" id="15_qoskm"]
+[ext_resource type="Resource" uid="uid://ctpcin8tjqyyo" path="res://Dialogue/diskplayer.dialogue" id="16_drupc"]
+[ext_resource type="PackedScene" uid="uid://cmjqc6cbgwud3" path="res://IteractItems/MessageItem/BookShelf_Small_Down.tscn" id="17_cfi1h"]
+[ext_resource type="Resource" uid="uid://c3rcwiq8x5goc" path="res://Dialogue/comodBed.dialogue" id="18_7wpql"]
+[ext_resource type="Script" path="res://IteractItems/bookshelf.gd" id="19_gyvjc"]
+[ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="20_c67ox"]
+[ext_resource type="PackedScene" uid="uid://df5cxo6lh4j1j" path="res://IteractItems/MessageItem/Lamp_High.tscn" id="21_gvs3x"]
+[ext_resource type="PackedScene" uid="uid://o5e5ayua8sll" path="res://IteractItems/Item/carpet_big.tscn" id="22_t6o6g"]
+[ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="23_0kj1y"]
+[ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="24_1jkyp"]
+[ext_resource type="PackedScene" uid="uid://b2wojghyus14f" path="res://IteractItems/ChestItem/Pedestal_Left.tscn" id="25_07qkp"]
+[ext_resource type="PackedScene" uid="uid://hbsooe1q0ph3" path="res://IteractItems/Item/table_with_flower.tscn" id="26_r674j"]
+[ext_resource type="PackedScene" uid="uid://b2xse6kosbpm" path="res://IteractItems/Item/ironing_board.tscn" id="27_7koo5"]
+
+[sub_resource type="GDScript" id="GDScript_kdus2"]
+script/source = "extends Door
+
+
+@onready var timer:Timer = $Timer
+
+
+
+
+var is_fired:bool = false:
+	set(value):
+		if locked==true:
+			if is_fired != value:
+				is_fired = value
+				match is_fired:
+					true:
+						print('fire')
+						start_fire()
+					false:
+						print('not fire')
+						stop_fire()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+	Sprite = $Sprite2D
+	OpenDoorArea=find_child(\"OpenDoorArea2\")
+	OpenDoorArea.monitorable=true
+	OpenDoorArea.monitoring=true
+	self.lock_rotation=true
+	Sprite.material.set('shader_parameter/line_thickness',0)
+
+
+
+func start_fire():
+	print(\"Сжигаем\")
+	timer.start()
+	$CPUParticles2D.emitting=true
+func stop_fire():
+	print(\"Отменнено\")
+	timer.stop()
+	$CPUParticles2D.emitting=false
+	
+func _on_timer_timeout():
+	$CPUParticles2D.queue_free()
+	locked=false
+	if locked ==false:
+		print(\"Соженно\")
+
+"
+
+[sub_resource type="GDScript" id="GDScript_c38uh"]
+script/source = "extends Area2D
+
+
+@onready var item = get_parent()
+@export var interact_label = \"none\"
+@export var interact_type = \"none\"
+@export var interact_dialog:DialogueResource
+@export var scene :Node2D
+
+
+func show_dialog()->void:
+	DialogueManager.show_example_dialogue_balloon(interact_dialog,\"start\")
+
+func enter_scene():
+	get_tree().change_scene_to_file(\"res://levels/сorridor2.tscn\")
+	print(\"Переход надругие сцену\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sidrg"]
+size = Vector2(25, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1pj1"]
+size = Vector2(31, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lp6f"]
+size = Vector2(31, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygb1e"]
+size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd42c"]
+size = Vector2(32, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdhbf"]
+size = Vector2(29, 20)
+
+[sub_resource type="GDScript" id="GDScript_mxahx"]
+script/source = "extends InteractItem
+@onready var ChestInventory:Control 
+@onready var ChestCanvas:CanvasLayer = $CanvasLayer
+
+@export var dialoge : DialogueResource
+var is_open:bool = false:
+	set(value):
+		if value == false:
+			ChestCanvas.hide()
+			ChestInventory.hide()
+			is_open = false
+		else:
+			if MainInventory.Inventory.have_item(\"Key\") == true:
+				ChestCanvas.show()
+				ChestInventory.show()
+				is_open = true
+			else:
+				is_open = false
+				DialogueManager.show_example_dialogue_balloon(dialoge)
+
+			
+func _ready():
+	pass
+	ChestInventory=ChestCanvas.get_child(0)
+	ChestInventory.hide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqs0n"]
+size = Vector2(20, 22)
+
+[node name="GrandMaRoom" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_o2utu")
+format = 2
+layer_0/name = "Construction"
+layer_0/tile_data = PackedInt32Array(655368, 131072, 6, 720905, 131072, 6, 786441, 131072, 6, 786442, 196608, 6, 851978, 131072, 6, 851979, 196608, 6, 917515, 131072, 6, 917516, 196608, 6, 983052, 131072, 6, 1048589, 131072, 6, 720904, 131072, 6, 786440, 131072, 6, 851976, 196608, 6, 917512, 131072, 6, 983048, 131072, 6, 983049, 196608, 6, 1048585, 196608, 6, 1048586, 196608, 6, 1048587, 196608, 6, 1048588, 131072, 6, 1048584, 196608, 6, 983050, 196608, 6, 983051, 196608, 6, 983053, 131072, 6, 917517, 131072, 6, 917514, 196608, 6, 917513, 131072, 6, 851977, 131072, 6, 851980, 196608, 6, 851981, 196608, 6, 786445, 131072, 6, 786444, 196608, 6, 786443, 196608, 6, 720906, 196608, 6, 720907, 196608, 6, 720908, 196608, 6, 655372, 131072, 6, 655373, 131072, 6, 720909, 131072, 6, 655371, 131072, 6, 655370, 196608, 6, 1048590, 131072, 6, 983054, 196608, 6, 917518, 131072, 6, 851982, 196608, 6, 786446, 196608, 6, 720910, 131072, 6, 655374, 131072, 6, 655375, 196608, 6, 720911, 131072, 6, 786447, 131072, 6, 851983, 131072, 6, 917519, 196608, 6, 983055, 196608, 6, 1048591, 131072, 6, 1048592, 196608, 6, 983056, 196608, 6, 917520, 131072, 6, 851984, 196608, 6, 786448, 131072, 6, 720912, 131072, 6, 655376, 196608, 6, 655377, 196608, 6, 720913, 131072, 6, 786449, 196608, 6, 851985, 196608, 6, 917521, 196608, 6, 983057, 131072, 6, 1048593, 196608, 6, 1048594, 131072, 6, 983058, 131072, 6, 917522, 196608, 6, 851986, 131072, 6, 786450, 131072, 6, 720914, 196608, 6, 655378, 131072, 6, 655379, 131072, 6, 720915, 131072, 6, 786451, 131072, 6, 851987, 196608, 6, 917523, 131072, 6, 983059, 196608, 6, 1048595, 196608, 6, 1179670, 262144, 7, 1114134, 262144, 6, 1048598, 262144, 6, 983062, 262144, 6, 917526, 262144, 6, 851990, 262144, 6, 786454, 262144, 6, 720918, 262144, 6, 655382, 262144, 6, 589846, 262144, 5, 1179669, 131072, 7, 1114133, 131072, 6, 1048597, 196608, 6, 983061, 131072, 6, 917525, 196608, 6, 851989, 196608, 6, 786453, 196608, 6, 720917, 196608, 6, 655381, 196608, 6, 589845, 196608, 5, 1179668, 131072, 7, 1114132, 196608, 6, 1048596, 196608, 6, 983060, 196608, 6, 917524, 131072, 6, 851988, 196608, 6, 786452, 131072, 6, 720916, 131072, 6, 655380, 196608, 6, 589844, 196608, 5, 1179667, 196608, 7, 1114131, 196608, 6, 589843, 131072, 5, 1179666, 196608, 7, 1114130, 131072, 6, 589842, 131072, 5, 1179665, 196608, 7, 1114129, 196608, 6, 589841, 196608, 5, 1179664, 196608, 7, 1114128, 196608, 6, 589840, 131072, 5, 1179663, 196608, 7, 1114127, 196608, 6, 589839, 196608, 5, 1179662, 196608, 7, 1114126, 196608, 6, 589838, 131072, 5, 1179661, 196608, 7, 1114125, 196608, 6, 589837, 131072, 5, 1179660, 196608, 7, 1114124, 131072, 6, 589836, 131072, 5, 1179659, 131072, 7, 1114123, 196608, 6, 589835, 196608, 5, 1179658, 196608, 7, 1114122, 196608, 6, 589834, 131072, 5, 1179657, 131072, 7, 1114121, 196608, 6, 589833, 196608, 5, 1179656, 131072, 7, 1114120, 196608, 6, 589832, 196608, 5, 1179655, 131072, 7, 1114119, 131072, 6, 1048583, 196608, 6, 983047, 196608, 6, 917511, 131072, 6, 851975, 196608, 6, 786439, 196608, 6, 720903, 196608, 6, 655367, 131072, 6, 589831, 196608, 5, 1179654, 65536, 7, 1114118, 65536, 6, 1048582, 65536, 6, 983046, 65536, 6, 917510, 65536, 6, 851974, 65536, 6, 786438, 65536, 6, 720902, 65536, 6, 655366, 65536, 6, 589830, 65536, 5, 524310, 524288, 4, 458774, 524288, 3, 524309, 393216, 4, 458773, 458752, 3, 524308, 458752, 4, 458772, 393216, 3, 524307, 393216, 4, 458771, 393216, 3, 524306, 458752, 4, 458770, 393216, 3, 524305, 393216, 4, 458769, 393216, 3, 524304, 393216, 4, 458768, 393216, 3, 524303, 393216, 4, 458767, 458752, 3, 524302, 393216, 4, 458766, 458752, 3, 524301, 458752, 4, 458765, 458752, 3, 524300, 458752, 4, 458764, 393216, 3, 524299, 393216, 4, 458763, 458752, 3, 524298, 458752, 4, 458762, 393216, 3, 524297, 393216, 4, 458761, 393216, 3, 524296, 393216, 4, 458760, 458752, 3, 524295, 458752, 4, 458759, 393216, 3, 524294, 327680, 4, 458758, 327680, 3, 393238, 524288, 2, 327702, 524288, 1, 393237, 458752, 2, 327701, 393216, 1, 393236, 393216, 2, 327700, 393216, 1, 393235, 458752, 2, 327699, 458752, 1, 393234, 458752, 2, 327698, 458752, 1, 393233, 393216, 2, 327697, 458752, 1, 393232, 393216, 2, 327696, 393216, 1, 393231, 458752, 2, 327695, 458752, 1, 393230, 393216, 2, 327694, 458752, 1, 393229, 393216, 2, 327693, 458752, 1, 393228, 458752, 2, 327692, 458752, 1, 393227, 393216, 2, 327691, 458752, 1, 393226, 393216, 2, 327690, 458752, 1, 393225, 458752, 2, 327689, 458752, 1, 393224, 458752, 2, 327688, 458752, 1, 393223, 393216, 2, 327687, 458752, 1, 393222, 327680, 2, 327686, 327680, 1, 655369, 196608, 6, 393239, 1114112, 2, 458775, 1114112, 3, 524311, 1114112, 4, 589847, 1114112, 5, 655383, 1114112, 2, 720919, 1114112, 3, 786455, 1114112, 4, 851991, 1114112, 5, 917527, 1114112, 2, 983063, 1114112, 3, 1048599, 1114112, 4, 1114135, 1114112, 5, 1179671, 1114112, 7, 1245207, 1114112, 8, 262167, 1114112, 0, 327703, 1114112, 1, 262152, 262144, 0, 262153, 327680, 0, 262154, 393216, 0, 262155, 458752, 0, 262156, 524288, 0, 262157, 589824, 0, 262158, 655360, 0, 262159, 720896, 0, 262160, 786432, 0, 262161, 851968, 0, 262162, 917504, 0, 262163, 983040, 0, 262164, 1048576, 0, 262165, 983040, 0, 262166, 1048576, 0, 262150, 65536, 0, 262151, 196608, 0, 262149, 0, 0, 327685, 0, 1, 393221, 0, 1, 458757, 0, 1, 524293, 0, 1, 589829, 0, 1, 655365, 0, 1, 720901, 0, 1, 786437, 0, 1, 851973, 0, 1, 917509, 0, 1, 983045, 0, 1, 1048581, 0, 1, 1114117, 0, 1, 1179653, 0, 7, 1245189, 0, 8, 1245190, 851968, 8, 1245191, 851968, 8, 1245192, 851968, 8, 1245193, 851968, 8, 1245194, 851968, 8, 1245195, 851968, 8, 1245196, 851968, 8, 1245197, 851968, 8, 1245198, 851968, 8, 1245199, 851968, 8, 1245200, 851968, 8, 1245201, 851968, 8, 1245202, 851968, 8, 1245203, 851968, 8, 1245204, 851968, 8, 1245205, 851968, 8, 1245206, 851968, 8)
+layer_1/name = "window_and_door"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(393225, 393218, 3, 393231, 524290, 3, 458772, 393218, 0)
+layer_2/name = "decorations"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 2
+layer_2/tile_data = PackedInt32Array()
+
+[node name="RayCast" parent="." instance=ExtResource("4_jqlm3")]
+position = Vector2(149, 111)
+target_position = Vector2(3, 111)
+collision_mask = 256
+
+[node name="Line2D" parent="RayCast" index="0"]
+position = Vector2(3, -3)
+points = PackedVector2Array(0, -2, 0, 114)
+
+[node name="OutGrandMaDoor" parent="." instance=ExtResource("5_1rgk6")]
+position = Vector2(329, 146)
+script = SubResource("GDScript_kdus2")
+
+[node name="OpenDoorArea2" parent="OutGrandMaDoor" instance=ExtResource("6_ahplo")]
+position = Vector2(2, -30.5)
+script = SubResource("GDScript_c38uh")
+interact_type = "open_door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutGrandMaDoor/OpenDoorArea2"]
+position = Vector2(-2.5, 15)
+shape = SubResource("RectangleShape2D_sidrg")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Mirror" parent="Objects" instance=ExtResource("8_3ktbv")]
+position = Vector2(115, 283)
+
+[node name="InteractArea" parent="Objects/Mirror" instance=ExtResource("6_ahplo")]
+interact_type = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Mirror/InteractArea"]
+position = Vector2(-0.5, -9.5)
+shape = SubResource("RectangleShape2D_p1pj1")
+debug_color = Color(0.760784, 0.435294, 0.32549, 0.419608)
+
+[node name="Mirror2" parent="Objects" instance=ExtResource("9_hdk88")]
+position = Vector2(347, 284)
+collision_layer = 257
+
+[node name="InteractArea" parent="Objects/Mirror2" instance=ExtResource("6_ahplo")]
+interact_type = "move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Mirror2/InteractArea"]
+position = Vector2(1.5, -8.5)
+shape = SubResource("RectangleShape2D_1lp6f")
+debug_color = Color(0.819608, 0.360784, 0.466667, 0.419608)
+
+[node name="Bed" type="Sprite2D" parent="Objects"]
+position = Vector2(215, 157)
+texture = ExtResource("10_cdqb8")
+
+[node name="Chair_Down" parent="Objects" instance=ExtResource("11_x20bt")]
+position = Vector2(119, 152)
+
+[node name="InteractArea" parent="Objects/Chair_Down" instance=ExtResource("6_ahplo")]
+interact_type = "message"
+interact_dialog = ExtResource("12_a331p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Chair_Down/InteractArea"]
+position = Vector2(2, -9)
+shape = SubResource("RectangleShape2D_ygb1e")
+
+[node name="Chair_UP" parent="Objects" instance=ExtResource("13_f0pcf")]
+position = Vector2(119, 219)
+
+[node name="InteractArea" parent="Objects/Chair_UP" instance=ExtResource("6_ahplo")]
+interact_type = "message"
+interact_dialog = ExtResource("12_a331p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Chair_UP/InteractArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_sd42c")
+
+[node name="Tabel_Small" parent="Objects" instance=ExtResource("14_fishm")]
+position = Vector2(119, 183)
+
+[node name="DIskPLayer" parent="Objects" instance=ExtResource("15_qoskm")]
+position = Vector2(181, 148)
+
+[node name="InteractArea" parent="Objects/DIskPLayer" instance=ExtResource("6_ahplo")]
+interact_type = "message"
+interact_dialog = ExtResource("16_drupc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/DIskPLayer/InteractArea"]
+position = Vector2(-1.5, -7)
+shape = SubResource("RectangleShape2D_qdhbf")
+
+[node name="BookShelf" parent="Objects" instance=ExtResource("17_cfi1h")]
+position = Vector2(249, 151)
+script = SubResource("GDScript_mxahx")
+dialoge = ExtResource("18_7wpql")
+
+[node name="InteractArea" parent="Objects/BookShelf" index="2"]
+position = Vector2(17, 45)
+script = ExtResource("19_gyvjc")
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" parent="Objects/BookShelf/InteractArea" index="0"]
+position = Vector2(-17, -58)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Objects/BookShelf"]
+
+[node name="Inventory" parent="Objects/BookShelf/CanvasLayer" instance=ExtResource("20_c67ox")]
+
+[node name="LampHigh" parent="Objects" instance=ExtResource("21_gvs3x")]
+position = Vector2(290, 153)
+
+[node name="CarpetBig" parent="Objects" instance=ExtResource("22_t6o6g")]
+position = Vector2(219, 220)
+
+[node name="CarpetSmallLight" parent="Objects" instance=ExtResource("23_0kj1y")]
+position = Vector2(328, 154)
+
+[node name="CarpetSmallLight2" parent="Objects" instance=ExtResource("23_0kj1y")]
+position = Vector2(341, 212)
+rotation = 1.5708
+
+[node name="SlimeBase" parent="Objects" instance=ExtResource("24_1jkyp")]
+position = Vector2(212, 231)
+
+[node name="Pedestal_Left2" parent="Objects" instance=ExtResource("25_07qkp")]
+position = Vector2(358, 213)
+
+[node name="CanvasLayer" parent="Objects/Pedestal_Left2" index="2"]
+visible = false
+
+[node name="Inventory" parent="Objects/Pedestal_Left2/CanvasLayer" index="0" instance=ExtResource("20_c67ox")]
+
+[node name="InteractArea" parent="Objects/Pedestal_Left2" instance=ExtResource("6_ahplo")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Pedestal_Left2/InteractArea"]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_hqs0n")
+
+[node name="Pedestal_Left3" parent="Objects" instance=ExtResource("25_07qkp")]
+position = Vector2(358, 250)
+
+[node name="CanvasLayer" parent="Objects/Pedestal_Left3" index="2"]
+visible = false
+
+[node name="Inventory" parent="Objects/Pedestal_Left3/CanvasLayer" index="0" instance=ExtResource("20_c67ox")]
+
+[node name="InteractArea" parent="Objects/Pedestal_Left3" instance=ExtResource("6_ahplo")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Pedestal_Left3/InteractArea"]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_hqs0n")
+
+[node name="Table_With_flower" parent="Objects" instance=ExtResource("26_r674j")]
+position = Vector2(248, 293)
+
+[node name="ironing_board" parent="Objects" instance=ExtResource("27_7koo5")]
+position = Vector2(210, 293)
+
+[editable path="RayCast"]
+[editable path="Objects/Mirror"]
+[editable path="Objects/Mirror/RayCast"]
+[editable path="Objects/Mirror2"]
+[editable path="Objects/Mirror2/RayCast"]
+[editable path="Objects/BookShelf"]
+[editable path="Objects/Pedestal_Left2"]
+[editable path="Objects/Pedestal_Left3"]

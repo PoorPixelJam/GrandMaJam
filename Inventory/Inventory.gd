@@ -26,5 +26,10 @@ func add(item)->bool:
 		print("add NOt item")
 		return false
 		
-	
+
+func have_item(name_item:String):
+	for slot in InventoryItems:
+		if slot.get_child_count()>0:
+			if slot.get_child(0).NameItem ==name_item:
+				return true
 

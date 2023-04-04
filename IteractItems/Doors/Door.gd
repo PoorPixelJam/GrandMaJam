@@ -12,10 +12,10 @@ var locked:bool =true:
 				pass
 			else:#Дверь раблокируеться
 				locked=false
-				OpenDoorArea.monitorable=true
-				OpenDoorArea.monitoring=true
-				DialogArea.monitorable=false
-				DialogArea.monitoring=false
+#				OpenDoorArea.monitorable=true
+#				OpenDoorArea.monitoring=true
+#				DialogArea.monitorable=false
+#				DialogArea.monitoring=false
 
 
 

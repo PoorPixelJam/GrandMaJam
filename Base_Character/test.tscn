@@ -369,7 +369,7 @@ size = Vector2(13, 17.179)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hay7t"]
 
 [node name="SlimeBase" type="CharacterBody2D" groups=["player"]]
-collision_layer = 8
+collision_layer = 264
 script = ExtResource("1_ydq0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

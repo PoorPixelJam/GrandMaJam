@@ -1,0 +1,105 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_7qn2n"]
+
+[resource]
+script = ExtResource("1_7qn2n")
+titles = {
+"start": "3"
+}
+character_names = PackedStringArray("Бабушка")
+first_title = "3"
+lines = {
+"1": {
+"next_id": "3",
+"text": "start",
+"type": "title"
+},
+"10": {
+"character": "Бабушка",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "11",
+"text": "Ни на что не годен пол уже. И как только солнечные лучи смогли прожечь пол?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Ни на что не годен пол уже. И как только солнечные лучи смогли прожечь пол?",
+"type": "dialogue"
+},
+"11": {
+"character": "Бабушка",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "14",
+"text": "Зерлкало можно передвинуть. Внук часто любил играться с зеркалами и иногда мог с помощью лупы даже что-то сжечь.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Зерлкало можно передвинуть. Внук часто любил играться с зеркалами и иногда мог с помощью лупы даже что-то сжечь.",
+"type": "dialogue"
+},
+"14": {
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+},
+"3": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "4",
+"text": "Темный свет и холодный, спертый воздух. Он ударил бы в нос, но запахи будто бы пропали. Все такое.. мертвое. Сине-фиолетовый оттенок, такой неживой, заставляющий толпу мурашек пробежаться по коже.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Темный свет и холодный, спертый воздух. Он ударил бы в нос, но запахи будто бы пропали. Все такое.. мертвое. Сине-фиолетовый оттенок, такой неживой, заставляющий толпу мурашек пробежаться по коже.",
+"type": "dialogue"
+},
+"4": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "5",
+"text": "– Н-неужели.. неужели время мое пришло?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "– Н-неужели.. неужели время мое пришло?",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "6",
+"text": "Пожилая леди присаживается на кровать. Она уже знала. Уже была готова к этому.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Пожилая леди присаживается на кровать. Она уже знала. Уже была готова к этому.",
+"type": "dialogue"
+},
+"6": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "7",
+"text": "– Но как же т-так.. оставить своего внучка? Как он.. б-без меня будет-то? – Рука крепко сжимает простынь кровати, –  Хотя бы пирожками.. в последний раз.. нужно у-угостить его... Проверить, как он там..",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "– Но как же т-так.. оставить своего внучка? Как он.. б-без меня будет-то? – Рука крепко сжимает простынь кровати, –  Хотя бы пирожками.. в последний раз.. нужно у-угостить его... Проверить, как он там..",
+"type": "dialogue"
+},
+"7": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "8",
+"text": "Пробуждение такое, словно тебя вытолкнули из кошмара. Первые глотки воздуха даются с таким трудом, будто бы все тело отторгает надобность дышать.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Пробуждение такое, словно тебя вытолкнули из кошмара. Первые глотки воздуха даются с таким трудом, будто бы все тело отторгает надобность дышать.",
+"type": "dialogue"
+},
+"8": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "9",
+"text": "– Как.. он там..",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "– Как.. он там..",
+"type": "dialogue"
+},
+"9": {
+"character": "Бабушка",
+"character_replacements": Array[Dictionary]([]),
+"next_id": "10",
+"text": "Я.. не могу открыть дверь. Неужели дело в обереге?",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Я.. не могу открыть дверь. Неужели дело в обереге?",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.14.0"

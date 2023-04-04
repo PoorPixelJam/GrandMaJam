@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://bohgpl7tfe6or"]
+
+[ext_resource type="TileSet" uid="uid://ouf8g0rdubw7" path="res://levels/tileset.tres" id="1_e1unp"]
+[ext_resource type="PackedScene" uid="uid://o5e5ayua8sll" path="res://IteractItems/Item/carpet_big.tscn" id="2_7npa8"]
+[ext_resource type="PackedScene" uid="uid://blebosey1babv" path="res://IteractItems/ChestItem/VeryBigTabel.tscn" id="3_bwokm"]
+[ext_resource type="PackedScene" uid="uid://xkwqxrdnr7uv" path="res://Inventory/ChestInventory.tscn" id="4_jvsau"]
+[ext_resource type="PackedScene" uid="uid://bnbvdygiqgxfs" path="res://Item/Item.tscn" id="5_rurvx"]
+[ext_resource type="PackedScene" uid="uid://b0rn2v0xowqd6" path="res://IteractItems/interact_area.tscn" id="6_gm7y4"]
+[ext_resource type="PackedScene" uid="uid://bafklh0nslu3i" path="res://IteractItems/MessageItem/Chair_Down.tscn" id="7_4apox"]
+[ext_resource type="PackedScene" uid="uid://ci7xljgaifylx" path="res://IteractItems/MessageItem/Chair_Up.tscn" id="8_ilypa"]
+[ext_resource type="PackedScene" uid="uid://cspqtwvnlhxw" path="res://IteractItems/MessageItem/BigChaier_Right.tscn" id="9_xdhou"]
+[ext_resource type="PackedScene" uid="uid://bgwqxjqeb08p7" path="res://Base_Character/test.tscn" id="10_54hy0"]
+[ext_resource type="PackedScene" uid="uid://c1m5dyatwvqae" path="res://IteractItems/Item/carpet_small_light.tscn" id="11_ktva2"]
+[ext_resource type="PackedScene" uid="uid://dlx3l6vx1rq0p" path="res://Enemy/EnemyWithState.tscn" id="12_l8dg0"]
+[ext_resource type="PackedScene" uid="uid://c263we0irphhg" path="res://globals/cs_cene_transition.tscn" id="13_ff1ls"]
+[ext_resource type="Texture2D" uid="uid://c5g6gvfvvlpb7" path="res://icon.svg" id="14_de4n0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxsv4"]
+size = Vector2(28, 39)
+
+[sub_resource type="GDScript" id="GDScript_q1aes"]
+script/source = "extends Area2D
+
+
+func _on_area_entered(area):
+	get_tree().change_scene_to_file(\"res://levels/сorridor2.tscn\")
+
+
+func _on_body_entered(body):
+	get_tree().change_scene_to_file(\"res://levels/сorridor2.tscn\")
+"
+
+[node name="living_room" type="Node2D" groups=["curent_scene"]]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_e1unp")
+format = 2
+layer_0/tile_data = PackedInt32Array(655377, 196608, 7, 589841, 196608, 6, 524305, 196608, 6, 458769, 196608, 6, 393233, 196608, 6, 327697, 196608, 6, 655376, 196608, 7, 589840, 196608, 6, 524304, 196608, 6, 458768, 196608, 6, 393232, 196608, 6, 327696, 196608, 6, 655375, 196608, 7, 589839, 196608, 6, 524303, 196608, 6, 458767, 196608, 6, 393231, 196608, 6, 327695, 196608, 6, 655374, 196608, 7, 589838, 196608, 6, 524302, 196608, 6, 458766, 196608, 6, 393230, 196608, 6, 327694, 196608, 6, 655373, 196608, 7, 589837, 196608, 6, 524301, 196608, 6, 458765, 196608, 6, 393229, 196608, 6, 327693, 196608, 6, 655372, 196608, 7, 589836, 196608, 6, 524300, 196608, 6, 458764, 196608, 6, 393228, 196608, 6, 327692, 196608, 6, 655371, 196608, 7, 589835, 196608, 6, 524299, 196608, 6, 458763, 196608, 6, 393227, 196608, 6, 327691, 196608, 6, 655370, 196608, 7, 589834, 196608, 6, 524298, 196608, 6, 458762, 196608, 6, 393226, 196608, 6, 327690, 196608, 6, 655369, 196608, 7, 589833, 196608, 6, 524297, 196608, 6, 458761, 196608, 6, 393225, 196608, 6, 327689, 196608, 6, 655368, 196608, 7, 589832, 196608, 6, 524296, 196608, 6, 458760, 196608, 6, 393224, 196608, 6, 327688, 196608, 6, 655367, 196608, 7, 589831, 196608, 6, 524295, 196608, 6, 458759, 196608, 6, 393223, 196608, 6, 327687, 196608, 6, 655366, 196608, 7, 589830, 196608, 6, 524294, 196608, 6, 458758, 196608, 6, 393222, 196608, 6, 327686, 196608, 6, 655365, 196608, 7, 589829, 196608, 6, 524293, 196608, 6, 458757, 196608, 6, 393221, 196608, 6, 327685, 196608, 6, 655364, 196608, 7, 589828, 196608, 6, 524292, 196608, 6, 458756, 196608, 6, 393220, 196608, 6, 327684, 196608, 6, 655363, 131072, 7, 589827, 131072, 6, 524291, 131072, 6, 458755, 131072, 6, 393219, 131072, 6, 327683, 131072, 6, 262161, 196608, 6, 196625, 196608, 6, 262160, 196608, 6, 196624, 196608, 6, 262159, 196608, 6, 196623, 196608, 6, 262158, 196608, 6, 196622, 196608, 6, 262157, 196608, 6, 196621, 196608, 6, 262156, 196608, 6, 196620, 196608, 6, 262155, 196608, 6, 196619, 196608, 6, 262154, 196608, 6, 196618, 196608, 6, 262153, 196608, 6, 196617, 196608, 6, 262152, 196608, 6, 196616, 196608, 6, 262151, 196608, 6, 196615, 196608, 6, 262150, 196608, 6, 196614, 196608, 6, 262149, 196608, 6, 196613, 196608, 6, 262148, 196608, 6, 196612, 196608, 6, 262147, 131072, 6, 196611, 131072, 6, 655378, 196608, 7, 589842, 196608, 6, 524306, 196608, 6, 458770, 196608, 6, 393234, 196608, 6, 327698, 196608, 6, 262162, 196608, 6, 196626, 196608, 6, 131090, 196608, 6, 65554, 196608, 6, 18, 196608, 6, 131089, 196608, 6, 65553, 196608, 6, 17, 196608, 6, 131088, 196608, 6, 65552, 196608, 6, 16, 196608, 6, 131087, 196608, 6, 65551, 196608, 6, 15, 196608, 6, 131086, 196608, 6, 65550, 196608, 6, 14, 196608, 6, 131085, 196608, 6, 65549, 196608, 6, 13, 196608, 6, 131084, 196608, 6, 65548, 196608, 6, 12, 196608, 6, 131083, 196608, 6, 65547, 196608, 6, 11, 196608, 6, 131082, 196608, 6, 65546, 196608, 6, 10, 196608, 6, 131081, 196608, 6, 65545, 196608, 6, 9, 196608, 6, 131080, 196608, 6, 65544, 196608, 6, 8, 196608, 6, 131079, 196608, 6, 65543, 196608, 6, 7, 196608, 6, 131078, 196608, 6, 65542, 196608, 6, 6, 196608, 6, 131077, 196608, 6, 65541, 196608, 6, 5, 196608, 6, 131076, 196608, 6, 65540, 196608, 6, 4, 196608, 6, 131075, 131072, 6, 65539, 131072, 6, 3, 131072, 6, -65518, 196608, 5, -65519, 196608, 5, -65520, 196608, 5, -65521, 196608, 5, -65522, 196608, 5, -65523, 196608, 5, -65524, 196608, 5, -65525, 196608, 5, -65526, 196608, 5, -65527, 196608, 5, -65528, 196608, 5, -65529, 196608, 5, -65530, 196608, 5, -65531, 196608, 5, -65532, 196608, 5, -65533, 131072, 5, 655380, 262144, 7, 589844, 262144, 6, 524308, 262144, 6, 458772, 262144, 6, 393236, 262144, 6, 327700, 262144, 6, 262164, 262144, 6, 196628, 262144, 6, 131092, 262144, 6, 65556, 262144, 6, 20, 262144, 6, -65516, 262144, 5, 655379, 196608, 7, 589843, 196608, 6, 524307, 196608, 6, 458771, 196608, 6, 393235, 196608, 6, 327699, 196608, 6, 262163, 196608, 6, 196627, 196608, 6, 131091, 196608, 6, 65555, 196608, 6, 19, 196608, 6, -65517, 196608, 5, -131052, 262144, 4, -196588, 262144, 3, -262124, 262144, 3, -327660, 262144, 1, -131053, 196608, 4, -196589, 196608, 3, -262125, 131072, 3, -327661, 196608, 1, -131054, 196608, 4, -196590, 196608, 3, -262126, 131072, 3, -327662, 196608, 1, -131055, 131072, 4, -196591, 196608, 2, -262127, 131072, 3, -327663, 196608, 1, -131056, 196608, 4, -196592, 131072, 2, -262128, 131072, 3, -327664, 131072, 1, -131057, 196608, 4, -196593, 131072, 2, -262129, 131072, 3, -327665, 131072, 1, -131058, 196608, 4, -196594, 196608, 2, -262130, 131072, 2, -327666, 131072, 1, -131059, 196608, 4, -196595, 131072, 3, -262131, 196608, 3, -327667, 196608, 1, -131060, 131072, 4, -196596, 196608, 3, -262132, 196608, 3, -327668, 131072, 1, -131061, 196608, 4, -196597, 196608, 2, -262133, 131072, 3, -327669, 196608, 1, -131062, 131072, 4, -196598, 131072, 3, -262134, 131072, 2, -327670, 131072, 1, -131063, 131072, 4, -196599, 131072, 3, -262135, 131072, 2, -327671, 131072, 1, -131064, 131072, 4, -196600, 196608, 2, -262136, 131072, 2, -327672, 131072, 1, -131065, 131072, 4, -196601, 196608, 2, -262137, 131072, 2, -327673, 196608, 1, -131066, 196608, 4, -196602, 196608, 3, -262138, 131072, 2, -327674, 131072, 1, -131067, 196608, 4, -196603, 131072, 2, -262139, 131072, 2, -327675, 196608, 1, -131068, 131072, 4, -196604, 131072, 3, -262140, 196608, 2, -327676, 196608, 1, -131069, 65536, 4, -196605, 65536, 2, -262141, 65536, 2, -327677, 65536, 1)
+layer_1/name = "windows"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-196598, 393218, 0)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="CarpetBig" parent="Objects" instance=ExtResource("2_7npa8")]
+position = Vector2(97, 35)
+
+[node name="VeryBigTabel" parent="Objects" instance=ExtResource("3_bwokm")]
+position = Vector2(99, 50)
+
+[node name="Inventory" parent="Objects/VeryBigTabel/CanvasLayer" index="0" instance=ExtResource("4_jvsau")]
+
+[node name="GridContainer" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer" index="0"]
+columns = 3
+
+[node name="Slot2" type="Panel" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer" index="1"]
+layout_mode = 2
+
+[node name="Control" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer/Slot2" instance=ExtResource("5_rurvx")]
+
+[node name="Slot3" type="Panel" parent="Objects/VeryBigTabel/CanvasLayer/Inventory/Panel/MarginContainer/GridContainer" index="2"]
+layout_mode = 2
+
+[node name="InteractArea" parent="Objects/VeryBigTabel" instance=ExtResource("6_gm7y4")]
+interact_type = "open_chest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/VeryBigTabel/InteractArea"]
+position = Vector2(0, -20.5)
+shape = SubResource("RectangleShape2D_rxsv4")
+
+[node name="InteractItem" parent="Objects" instance=ExtResource("7_4apox")]
+position = Vector2(99, 3)
+
+[node name="Chair_UP" parent="Objects" instance=ExtResource("8_ilypa")]
+position = Vector2(99, 79)
+
+[node name="BigChair_Right" parent="Objects" instance=ExtResource("9_xdhou")]
+position = Vector2(66, 43)
+
+[node name="SlimeBase" parent="Objects" instance=ExtResource("10_54hy0")]
+position = Vector2(159, 110)
+
+[node name="CarpetSmallLight" parent="Objects" instance=ExtResource("11_ktva2")]
+position = Vector2(323, 43)
+rotation = 1.5708
+
+[node name="Enemy" parent="." instance=ExtResource("12_l8dg0")]
+position = Vector2(321, 94)
+
+[node name="CSCeneTransition" parent="." instance=ExtResource("13_ff1ls")]
+position = Vector2(70, 141)
+collision_layer = 261
+collision_mask = 261
+script = SubResource("GDScript_q1aes")
+
+[node name="Sprite2D" type="Sprite2D" parent="CSCeneTransition"]
+position = Vector2(-2, 2)
+scale = Vector2(0.226563, 0.226563)
+texture = ExtResource("14_de4n0")
+
+[connection signal="area_entered" from="CSCeneTransition" to="CSCeneTransition" method="_on_area_entered"]
+[connection signal="body_entered" from="CSCeneTransition" to="CSCeneTransition" method="_on_body_entered"]
+
+[editable path="Objects/VeryBigTabel"]
+[editable path="Objects/VeryBigTabel/CanvasLayer/Inventory"]

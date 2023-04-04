@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdj1le3cmvg8k"]
-
-[ext_resource type="PackedScene" uid="uid://dnq86r34284nj" path="res://levels/grand_ma_room.tscn" id="1_3u17c"]
-[ext_resource type="Script" path="res://levels/scene_manager.gd" id="1_ip2ua"]
-
-[node name="SceneManager" type="Node2D"]
-script = ExtResource("1_ip2ua")
-
-[node name="GrandMaRoom" parent="." groups=["scene_manager"] instance=ExtResource("1_3u17c")]

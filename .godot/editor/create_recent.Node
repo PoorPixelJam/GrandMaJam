@@ -1,8 +1,9 @@
+Sprite2D
 CollisionShape2D
+Area2D
 Node
 Marker2D
 RigidBody2D
-Sprite2D
 Item
 StaticBody2D
 Node2D
@@ -21,5 +22,4 @@ BaseLight
 Line2D
 RayCast2D
 BaseState
-Area2D
 MeshInstance2D

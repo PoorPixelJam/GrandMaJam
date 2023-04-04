@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_6sqsd"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3y2hd"]
 
 [resource]
-script = ExtResource("1_6sqsd")
+script = ExtResource("1_3y2hd")
 titles = {
 "start": "3"
 }
-character_names = PackedStringArray()
+character_names = PackedStringArray("Записка 3")
 first_title = "3"
 lines = {
 "1": {
@@ -16,24 +16,15 @@ lines = {
 "type": "title"
 },
 "3": {
-"character": "",
+"character": "Записка 3",
 "character_replacements": Array[Dictionary]([]),
-"next_id": "4",
-"text": "Бабуль, неужели ты снова забыла пароль от своего комода? Там же этот.. исполнитель твой любимый! Популярный такой, что-то про перемены пел..",
+"next_id": "5",
+"text": "Вышла как-то в магазин. А по возвращению обнаружила отсутствие вазы. Как оказалось внучок ее разбил. Сколько горьких слез пролил! Переживал, что я разозлюсь. А для меня главное, что внучок не поранился нигде.",
 "text_replacements": Array[Dictionary]([]),
-"translation_key": "Бабуль, неужели ты снова забыла пароль от своего комода? Там же этот.. исполнитель твой любимый! Популярный такой, что-то про перемены пел..",
+"translation_key": "Вышла как-то в магазин. А по возвращению обнаружила отсутствие вазы. Как оказалось внучок ее разбил. Сколько горьких слез пролил! Переживал, что я разозлюсь. А для меня главное, что внучок не поранился нигде.",
 "type": "dialogue"
 },
-"4": {
-"character": "",
-"character_replacements": Array[Dictionary]([]),
-"next_id": "7",
-"text": "Кажеться его звалии.. Цой",
-"text_replacements": Array[Dictionary]([]),
-"translation_key": "Кажеться его звалии.. Цой",
-"type": "dialogue"
-},
-"7": {
+"5": {
 "is_snippet": false,
 "next_id": "end",
 "type": "goto"
